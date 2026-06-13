@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRTN Comics</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand" onclick="showHome()">
+      <div class="logo">M</div>
+      <div>
+        <strong>MRTN Comics</strong>
+        <span>Digital Reader</span>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <button class="nav-link active" data-view="home">Home</button>
+      <button class="nav-link" data-view="series">Series</button>
+      <button class="nav-link" data-view="continue">Continue Reading</button>
+    </nav>
+
+    <div class="header-actions">
+      <input id="searchInput" type="search" placeholder="Search..." />
+      <button id="themeToggle" class="icon-btn" title="Toggle light/dark mode">◐</button>
+    </div>
+  </header>
+
+  <main id="homeView" class="view active">
+    <section id="heroFeature" class="hero-feature"></section>
+
+    <section class="shelf">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Jump back in</p>
+          <h2>Continue Reading</h2>
+        </div>
+      </div>
+      <div id="homeContinueRow" class="continue-row"></div>
+    </section>
+
+    <section class="shelf">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Latest</p>
+          <h2>Recently Released</h2>
+        </div>
+      </div>
+      <div id="recentGrid" class="comic-grid"></div>
+    </section>
+  </main>
+
+  <main id="seriesView" class="view">
+    <section class="page-heading">
+      <p class="eyebrow">Browse</p>
+      <h1>Series</h1>
+      <p>Choose a series, then pick an issue.</p>
+    </section>
+    <div id="seriesGrid" class="series-grid"></div>
+  </main>
+
+  <main id="seriesDetailView" class="view">
+    <button class="reader-back detail-back" onclick="showSeries()">← All Series</button>
+    <section id="seriesDetailHero" class="series-detail-hero"></section>
+
+    <section class="shelf">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Issues</p>
+          <h2 id="seriesIssueTitle">Issues</h2>
+        </div>
+
+        <label class="sort-control">
+          Sort:
+          <select id="issueSortSelect">
+            <option value="new">Newest first</option>
+            <option value="old">Oldest first</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="seriesIssueGrid" class="comic-grid"></div>
+    </section>
+  </main>
+
+  <main id="continueView" class="view">
+    <section class="page-heading">
+      <p class="eyebrow">Progress</p>
+      <h1>Continue Reading</h1>
+      <p>Issues you already started will appear here.</p>
+    </section>
+    <div id="continueGrid" class="continue-row"></div>
+  </main>
+
+  <section id="readerView" class="view reader-view">
+    <div class="reader-topbar">
+      <button id="backBtn" class="reader-back">← Back</button>
+      <div class="reader-meta">
+        <span id="issueLabel"></span>
+        <strong id="comicTitle"></strong>
+      </div>
+      <div class="reader-actions">
+        <span id="pageCounter">Page 1 / 1</span>
+        <button id="restartBtn" class="reader-pill">Restart</button>
+        <button id="fullscreenBtn" class="reader-pill">Fullscreen</button>
+      </div>
+    </div>
+
+    <div class="reader-shell">
+      <button id="prevBtn" class="page-btn">‹</button>
+      <div class="page-stage" id="pageStage" title="Click left or right side to change pages">
+        <div id="bookSpread" class="book-spread"></div>
+      </div>
+      <button id="nextBtn" class="page-btn">›</button>
+    </div>
+
+    <div class="reader-controls">
+      <button id="prevBtnBottom" class="secondary-btn">Previous</button>
+      <input id="pageSlider" type="range" min="1" max="1" value="1" />
+      <button id="nextBtnBottom" class="primary-btn">Next</button>
+    </div>
+  </section>
+
+  <div id="resumeDialog" class="dialog-backdrop" aria-hidden="true">
+    <div class="dialog">
+      <p class="eyebrow">Continue Reading</p>
+      <h2 id="dialogTitle">Resume?</h2>
+      <p id="dialogText">You already started this issue.</p>
+      <div class="dialog-actions">
+        <button id="startOverBtn" class="secondary-btn">Start from cover</button>
+        <button id="continueBtn" class="primary-btn">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data/comics.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
