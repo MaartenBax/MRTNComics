@@ -596,11 +596,11 @@ h2 {
 }
 
 #bookSpread.turn-next {
-  animation: turnNext .34s ease both;
+  animation: none;
 }
 
 #bookSpread.turn-prev {
-  animation: turnPrev .34s ease both;
+  animation: none;
 }
 
 .book-page {
