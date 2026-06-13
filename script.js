@@ -376,7 +376,6 @@ document.getElementById("nextBtnBottom").addEventListener("click", nextPage);
 document.getElementById("prevBtnBottom").addEventListener("click", prevPage);
 document.getElementById("restartBtn").addEventListener("click", restartComic);
 document.getElementById("fullscreenBtn").addEventListener("click", toggleFullscreen);
-document.getElementById("themeToggle").addEventListener("click", () => document.body.classList.toggle("light"));
 
 document.getElementById("continueBtn").addEventListener("click", () => {
   resumeDialog.classList.remove("active");
