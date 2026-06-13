@@ -26,7 +26,7 @@ const COMICS_DATA = [
     title: "MRTN",
     issue: "Issue 001",
     issueNumber: 1,
-    description: "Your first comic issue. Replace these placeholder paths with your own PNG pages.",
+    description: "An autobiographical comic series about routine, noise, isolation, comfort, and the small things that keep everything together.",
     category: "MRTN",
     featured: true,
     cover: "comics/issue-001/cover.png",
