@@ -7,67 +7,78 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="app-header">
-    <div class="brand" onclick="showHome()">
-      <div class="logo">M</div>
-      <div>
-        <strong>MRTN Comics</strong>
-        <span>Digital Reader</span>
-      </div>
-    </div>
+  <header class="site-header">
+    <button class="brand" onclick="showHome()" aria-label="MRTN Comics home">
+      <img src="assets/logo.svg" alt="MRTN Comics" class="brand-logo">
+    </button>
 
     <nav class="main-nav">
       <button class="nav-link active" data-view="home">Home</button>
       <button class="nav-link" data-view="series">Series</button>
-      <button class="nav-link" data-view="continue">Continue Reading</button>
+      <button class="nav-link" data-view="favorites">Favorites</button>
     </nav>
 
-    <div class="header-actions">
+    <div class="header-tools">
       <input id="searchInput" type="search" placeholder="Search..." />
     </div>
   </header>
 
   <main id="homeView" class="view active">
-    <section id="heroFeature" class="hero-feature"></section>
+    <section id="homeHero" class="home-hero"></section>
 
-    <section class="shelf">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Jump back in</p>
+    <section class="home-panel">
+      <div class="panel-half">
+        <div class="section-title">
+          <span></span>
           <h2>Continue Reading</h2>
         </div>
+        <div id="homeContinuePanel"></div>
       </div>
-      <div id="homeContinueRow" class="continue-row"></div>
-    </section>
 
-    <section class="shelf">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Latest</p>
-          <h2>Recently Released</h2>
+      <div class="panel-divider"></div>
+
+      <div class="panel-half new-reader">
+        <div class="new-reader-art"></div>
+        <div class="new-reader-content">
+          <p class="red-star">★</p>
+          <h2>New here?</h2>
+          <p>Start with Issue 001 and follow the story from the beginning.</p>
+          <button id="startFirstIssueBtn" class="outline-btn">Start Reading <span>→</span></button>
         </div>
       </div>
-      <div id="recentGrid" class="comic-grid"></div>
+    </section>
+
+    <section class="latest-section">
+      <div class="section-title section-title-row">
+        <div>
+          <span></span>
+          <h2>Latest Issues</h2>
+        </div>
+        <button class="text-link" onclick="showSeriesDetail('mrtn')">View all issues <span>→</span></button>
+      </div>
+      <div id="latestIssuesRow" class="horizontal-issue-grid"></div>
     </section>
   </main>
 
-  <main id="seriesView" class="view">
+  <main id="seriesView" class="view page-view">
     <section class="page-heading">
       <p class="eyebrow">Browse</p>
       <h1>Series</h1>
-      <p>Choose a series, then pick an issue.</p>
+      <p>Choose a shelf, then pick an issue.</p>
     </section>
     <div id="seriesGrid" class="series-grid"></div>
   </main>
 
-  <main id="seriesDetailView" class="view">
+  <main id="seriesDetailView" class="view page-view">
     <button class="reader-back detail-back" onclick="showSeries()">← All Series</button>
     <section id="seriesDetailHero" class="series-detail-hero"></section>
 
     <section class="shelf">
-      <div class="section-head">
+      <div id="seriesContinueBlock" class="series-continue-block"></div>
+
+      <div class="section-title section-title-row">
         <div>
-          <p class="eyebrow">Issues</p>
+          <span></span>
           <h2 id="seriesIssueTitle">Issues</h2>
         </div>
 
@@ -80,17 +91,17 @@
         </label>
       </div>
 
-      <div id="seriesIssueGrid" class="comic-grid"></div>
+      <div id="seriesIssueGrid" class="horizontal-issue-grid"></div>
     </section>
   </main>
 
-  <main id="continueView" class="view">
+  <main id="favoritesView" class="view page-view">
     <section class="page-heading">
-      <p class="eyebrow">Progress</p>
-      <h1>Continue Reading</h1>
-      <p>Issues you already started will appear here.</p>
+      <p class="eyebrow">Personal Shelf</p>
+      <h1>Favorites</h1>
+      <p>Issues you heart will show up here on this device.</p>
     </section>
-    <div id="continueGrid" class="continue-row"></div>
+    <div id="favoritesGrid" class="horizontal-issue-grid"></div>
   </main>
 
   <section id="readerView" class="view reader-view">
@@ -133,6 +144,13 @@
       </div>
     </div>
   </div>
+
+  <footer class="site-footer">
+    <span>MRTN Comics</span>
+    <span>© 2026</span>
+    <button onclick="showSeries()">Series</button>
+    <button onclick="showFavorites()">Favorites</button>
+  </footer>
 
   <script src="data/comics.js"></script>
   <script src="script.js"></script>
