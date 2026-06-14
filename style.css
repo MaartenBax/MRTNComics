@@ -995,3 +995,46 @@ body.reading .site-footer {
   filter: brightness(1.08);
 }
 
+/* Disabled series cards */
+.series-card.disabled {
+  cursor: default;
+}
+
+.series-card.disabled:hover {
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+.series-card.disabled:hover > img {
+  filter: none;
+}
+
+.series-card.disabled::before {
+  content: "COMING SOON";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  padding: .35rem .6rem;
+  background: #a00800;
+  color: #ffffff;
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.disabled-btn {
+  cursor: default;
+  opacity: .6;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.disabled-btn:hover {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  transform: none;
+}

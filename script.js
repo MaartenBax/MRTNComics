@@ -6,7 +6,7 @@ let currentSpread = 0;
 let currentSpreads = [];
 let pendingComicIndex = 0;
 let currentSeriesId = null;
-let currentSort = "new";
+let currentSort = "old";
 let previousView = "home";
 
 const views = {
@@ -185,8 +185,9 @@ function renderSeriesGrid() {
   seriesGrid.innerHTML = visibleSeries.length
     ? visibleSeries.map(item => {
         const issueCount = comics.filter(comic => comic.series === item.id).length;
+        const disabled = issueCount === 0 || item.id === "coming-soon" || item.title.toLowerCase() === "coming soon";
         return `
-          <article class="series-card" onclick="showSeriesDetail('${item.id}')">
+          <article class="series-card ${disabled ? 'disabled' : ''}" ${disabled ? '' : `onclick="showSeriesDetail('${item.id}')"`}>
             <img src="${item.banner}" alt="${item.title} banner">
             <div class="series-card-content">
               ${
@@ -242,20 +243,28 @@ function issueCard(comic, index) {
   const seriesInfo = getSeriesById(comic.series);
   const favorite = isFavorite(index);
 
-  return `
-    <article class="issue-card">
-      <img class="issue-cover" src="${comic.cover}" alt="${comic.issue} cover">
-      <div class="issue-info">
-        <h3>${comic.issue || comic.title}</h3>
-        <p class="series-name">${seriesInfo?.title || comic.title}</p>
-        <p class="desc">${comic.description || "The next chapter."}</p>
-        <div class="card-actions">
-          <button class="small-btn" onclick="requestOpenComic(${index})">Read Now <span>→</span></button>
-          <button class="heart-btn ${favorite ? "active" : ""}" onclick="toggleFavorite(${index})">${favorite ? "♥" : "♡"}</button>
-        </div>
+return `
+  <article class="issue-card">
+    <img class="issue-cover" src="${comic.cover}" alt="${comic.issue} cover">
+    <div class="issue-info">
+      <h3>${comic.issue || comic.title}</h3>
+      <p class="series-name">${seriesInfo?.title || comic.title}</p>
+      <p class="desc">${comic.description || "The next chapter."}</p>
+
+      <div class="card-actions">
+        ${
+          comic.available === false
+            ? `<button class="small-btn disabled-btn" disabled>Coming Soon</button>`
+            : `<button class="small-btn" onclick="requestOpenComic(${index})">Read Now <span>→</span></button>`
+        }
+
+        <button class="heart-btn ${favorite ? "active" : ""}" onclick="toggleFavorite(${index})">
+          ${favorite ? "♥" : "♡"}
+        </button>
       </div>
-    </article>
-  `;
+    </div>
+  </article>
+`;
 }
 
 function matchesSearch(comic, query) {

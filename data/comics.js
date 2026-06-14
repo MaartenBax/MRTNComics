@@ -16,11 +16,11 @@ const SERIES_DATA = [
     hero: "series/echoing-horizon/banner.png"
   },
   {
-    id: "grimm",
-    title: "Grimm",
-    description: "A dark fairytale series with a harsher, Rated-R edge.",
-    banner: "series/grimm/banner.png",
-    hero: "series/grimm/banner.png"
+    id: "coming-soon",
+    title: "Coming Soon",
+    description: "A new project is taking shape.",
+    banner: "series/ComingSoon/banner.png",
+    hero: "series/ComingSoon/banner.png"
   }
 ];
 
@@ -45,7 +45,8 @@ const COMICS_DATA = [
       "comics/issue-001/page-007.png",
       "comics/issue-001/page-008.png"
     ],
-    backCover: "comics/issue-001/back-cover.png"
+    backCover: "comics/issue-001/back-cover.png",
+	available: true
   },
   {
     id: "mrt-002",
@@ -58,7 +59,8 @@ const COMICS_DATA = [
     featured: false,
     cover: "comics/issue-002/cover.png",
     pages: [],
-    backCover: ""
+    backCover: "",
+	available: false
   },
   {
     id: "mrt-003",
@@ -71,6 +73,7 @@ const COMICS_DATA = [
     featured: false,
     cover: "comics/issue-003/cover.png",
     pages: [],
-    backCover: ""
+    backCover: "",
+	available: false
   }
 ];
