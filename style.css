@@ -1119,3 +1119,26 @@ body.reading .site-footer {
   }
 }
 
+/* Mobile series detail hero fix */
+@media (max-width: 720px) {
+  .series-detail-hero {
+    min-height: auto;
+    padding: 2rem 1.2rem;
+    align-items: flex-end;
+  }
+
+  .series-detail-copy {
+    max-width: 100%;
+  }
+
+  .series-detail-logo {
+    width: min(300px, 100%);
+    max-height: 140px;
+  }
+
+  .series-detail-copy p:not(.eyebrow) {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+}
+
