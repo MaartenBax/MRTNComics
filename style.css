@@ -1038,3 +1038,71 @@ body.reading .site-footer {
   color: var(--muted);
   transform: none;
 }
+
+/* Mobile reader polish */
+@media (max-width: 720px) {
+  .reader-view {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .reader-topbar {
+    position: static;
+    gap: .9rem;
+    padding: .75rem 1rem;
+  }
+
+  #fullscreenBtn {
+    display: none;
+  }
+
+  .reader-shell {
+    display: block;
+    padding: 1rem;
+  }
+
+  .page-stage {
+    min-height: auto;
+    display: block;
+    padding: 1.25rem 0 1rem;
+  }
+
+  #bookSpread,
+  #bookSpread.single,
+  #bookSpread.double {
+    display: block;
+    max-width: 100%;
+    max-height: none;
+    background: none;
+  }
+
+  .book-page,
+  #bookSpread.single .book-page,
+  #bookSpread.double .book-page.left,
+  #bookSpread.double .book-page.right {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+
+  .reader-controls {
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    margin: 1rem 0 0;
+    padding: .75rem;
+    background: rgba(10,10,10,.92);
+  }
+
+  .reader-controls .outline-btn,
+  .reader-controls .primary-btn {
+    width: 100%;
+  }
+}
+

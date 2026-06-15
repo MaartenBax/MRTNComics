@@ -100,6 +100,11 @@ function getIssuesForSeries(seriesId) {
   });
 }
 
+
+function isMobileReader() {
+  return window.matchMedia("(max-width: 720px)").matches;
+}
+
 function renderHomeHero() {
   const featuredIndex = Math.max(0, comics.findIndex(comic => comic.featured));
   const comic = comics[featuredIndex] || comics[0];
@@ -295,11 +300,21 @@ function buildSpreads(comic) {
   if (comic.cover) spreads.push({ label: "Front Cover", images: [comic.cover] });
 
   const interiorPages = comic.pages || [];
-  for (let i = 0; i < interiorPages.length; i += 2) {
-    spreads.push({
-      label: interiorPages[i + 1] ? `Pages ${i + 1}-${i + 2}` : `Page ${i + 1}`,
-      images: interiorPages[i + 1] ? [interiorPages[i], interiorPages[i + 1]] : [interiorPages[i]]
+
+  if (isMobileReader()) {
+    interiorPages.forEach((page, index) => {
+      spreads.push({
+        label: `Page ${index + 1}`,
+        images: [page]
+      });
     });
+  } else {
+    for (let i = 0; i < interiorPages.length; i += 2) {
+      spreads.push({
+        label: interiorPages[i + 1] ? `Pages ${i + 1}-${i + 2}` : `Page ${i + 1}`,
+        images: interiorPages[i + 1] ? [interiorPages[i], interiorPages[i + 1]] : [interiorPages[i]]
+      });
+    }
   }
 
   if (comic.backCover) spreads.push({ label: "Back Cover", images: [comic.backCover] });
@@ -454,6 +469,21 @@ document.addEventListener("keydown", event => {
   if (event.key === "ArrowRight") nextPage();
   if (event.key === "ArrowLeft") prevPage();
   if (event.key === "Escape") closeReader();
+});
+
+
+window.addEventListener("resize", () => {
+  if (!currentComic || !views.reader.classList.contains("active")) return;
+
+  const oldSpread = currentSpread;
+  currentSpreads = buildSpreads(currentComic);
+
+  if (oldSpread >= currentSpreads.length) {
+    currentSpread = currentSpreads.length - 1;
+  }
+
+  pageSlider.max = currentSpreads.length;
+  updateSpread();
 });
 
 loadComics();
