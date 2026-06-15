@@ -884,11 +884,24 @@ body.reading .site-footer {
 }
 
 @media (max-width: 720px) {
-  .home-hero {
-    min-height: 520px;
-    padding: 2rem 1.2rem;
-    align-items: flex-end;
-  }
+.home-hero {
+  min-height: auto;
+  padding: 2rem 1.2rem 3rem;
+  align-items: flex-end;
+}
+
+.hero-series-logo {
+  width: min(280px, 100%);
+  max-height: 120px;
+}
+
+.hero-copy {
+  max-width: 100%;
+}
+
+.hero-copy p {
+  max-width: 100%;
+}
 
   .home-panel,
   .latest-section,
