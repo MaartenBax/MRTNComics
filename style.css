@@ -439,8 +439,8 @@ body.reading .site-footer {
 
 .issue-cover {
   width: 100%;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
+  height: auto;
+  display: block;
   border: 1px solid var(--line);
 }
 
