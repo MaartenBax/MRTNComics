@@ -47,7 +47,8 @@ const COMICS_DATA = [
 	  "comics/issue-001/page-009.png",
 	  "comics/issue-001/page-010.png",
 	  "comics/issue-001/page-011.png",
-	  "comics/issue-001/page-012.png"
+	  "comics/issue-001/page-012.png",
+	  "comics/issue-001/page-013.png"
     ],
     backCover: "comics/issue-001/back-cover.png",
 	available: true
