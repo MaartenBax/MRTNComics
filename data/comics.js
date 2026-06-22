@@ -48,7 +48,22 @@ const COMICS_DATA = [
 	  "comics/issue-001/page-010.png",
 	  "comics/issue-001/page-011.png",
 	  "comics/issue-001/page-012.png",
-	  "comics/issue-001/page-013.png"
+	  "comics/issue-001/page-013.png",
+	  "comics/issue-001/page-014.png",
+	  "comics/issue-001/page-015.png",
+	  "comics/issue-001/page-016.png",
+	  "comics/issue-001/page-017.png",
+	  "comics/issue-001/page-018.png",
+	  "comics/issue-001/page-019.png",
+	  "comics/issue-001/page-020.png",
+	  "comics/issue-001/page-021.png",
+	  "comics/issue-001/page-022.png",
+	  "comics/issue-001/page-023.png",
+	  "comics/issue-001/page-024.png",
+	  "comics/issue-001/page-025.png",
+	  "comics/issue-001/page-026.png",
+	  "comics/issue-001/page-027.png",
+	  "comics/issue-001/page-028.png"
     ],
     backCover: "comics/issue-001/back-cover.png",
 	available: true
