@@ -37,6 +37,7 @@ const COMICS_DATA = [
     cover: "comics/issue-001/cover.png",
     insideFrontCover: "comics/issue-001/InsideFrontCover.png",
     pages: [
+      "comics/issue-001/page-001.png",
       "comics/issue-001/page-002.png",
       "comics/issue-001/page-003.png",
       "comics/issue-001/page-004.png",
@@ -44,7 +45,9 @@ const COMICS_DATA = [
       "comics/issue-001/page-006.png",
       "comics/issue-001/page-007.png",
       "comics/issue-001/page-008.png",
-      "comics/issue-001/page-009.png",
+      "comics/issue-001/page-019.png",
+      "comics/issue-001/ad-001.png",
+      "comics/issue-001/ad-002.png",
       "comics/issue-001/page-010.png",
       "comics/issue-001/page-011.png",
       "comics/issue-001/page-012.png",
@@ -58,14 +61,11 @@ const COMICS_DATA = [
       "comics/issue-001/page-020.png",
       "comics/issue-001/page-021.png",
       "comics/issue-001/page-022.png",
-      "comics/issue-001/page-023.png",
-      "comics/issue-001/page-024.png",
-      "comics/issue-001/page-025.png",
-      "comics/issue-001/page-026.png",
-      "comics/issue-001/page-027.png"
+      "comics/issue-001/ad-003.png",
+      "comics/issue-001/ad-004.png"
     ],
     ads: [],
-    insideBackCover: "comics/issue-001/insideBackCover.png",
+    insideBackCover: "comics/issue-001/InsideBackCover.png",
     backCover: "comics/issue-001/back-cover.png",
     available: true
   },
