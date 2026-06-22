@@ -45,7 +45,7 @@ const COMICS_DATA = [
       "comics/issue-001/page-006.png",
       "comics/issue-001/page-007.png",
       "comics/issue-001/page-008.png",
-      "comics/issue-001/page-019.png",
+      "comics/issue-001/page-009.png",
       "comics/issue-001/ad-001.png",
       "comics/issue-001/ad-002.png",
       "comics/issue-001/page-010.png",
