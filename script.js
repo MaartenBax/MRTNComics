@@ -294,30 +294,60 @@ function favoriteKey(index) {
   return `mrt-comic-favorite-${comic.id || index}`;
 }
 
+function getInteriorItems(comic) {
+  const items = [];
+
+  if (comic.insideFrontCover) {
+    items.push({ label: "Inside Front Cover", src: comic.insideFrontCover });
+  }
+
+  (comic.pages || []).forEach((page, index) => {
+    items.push({ label: `Page ${index + 1}`, src: page });
+  });
+
+  (comic.ads || []).forEach((ad, index) => {
+    items.push({ label: `Ad ${index + 1}`, src: ad });
+  });
+
+  if (comic.insideBackCover) {
+    items.push({ label: "Inside Back Cover", src: comic.insideBackCover });
+  }
+
+  return items;
+}
+
 function buildSpreads(comic) {
   const spreads = [];
 
-  if (comic.cover) spreads.push({ label: "Front Cover", images: [comic.cover] });
+  if (comic.cover) {
+    spreads.push({ label: "Front Cover", images: [comic.cover] });
+  }
 
-  const interiorPages = comic.pages || [];
+  const interiorItems = getInteriorItems(comic);
 
   if (isMobileReader()) {
-    interiorPages.forEach((page, index) => {
+    interiorItems.forEach(item => {
       spreads.push({
-        label: `Page ${index + 1}`,
-        images: [page]
+        label: item.label,
+        images: [item.src]
       });
     });
   } else {
-    for (let i = 0; i < interiorPages.length; i += 2) {
+    for (let i = 0; i < interiorItems.length; i += 2) {
+      const first = interiorItems[i];
+      const second = interiorItems[i + 1];
+
       spreads.push({
-        label: interiorPages[i + 1] ? `Pages ${i + 1}-${i + 2}` : `Page ${i + 1}`,
-        images: interiorPages[i + 1] ? [interiorPages[i], interiorPages[i + 1]] : [interiorPages[i]]
+        label: second ? `${first.label} / ${second.label}` : first.label,
+        images: second ? [first.src, second.src] : [first.src]
       });
     }
   }
 
-  if (comic.backCover) spreads.push({ label: "Back Cover", images: [comic.backCover] });
+  if (comic.backCover) {
+    spreads.push({ label: "Back Cover", images: [comic.backCover] });
+  }
+
   return spreads;
 }
 
