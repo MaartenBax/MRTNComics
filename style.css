@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "R3DMYST";
+    src: url("assets/fonts/R3DMYST.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+	font-display: swap;
+}
+
 :root {
   --red: #A00800;
   --bg: #070707;
@@ -47,21 +55,28 @@ a {
   backdrop-filter: blur(14px);
 }
 
+@font-face {
+    font-family: "R3DMYST";
+    src: url("assets/fonts/R3DMyst.otf") format("opentype");
+    font-display: swap;
+}
+
 .brand {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.15rem;
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  font-size: 1.45rem;
+    display: inline-flex;
+    align-items: baseline;
+    text-decoration: none;
+    font-family: "R3DMYST", sans-serif;
+    font-size: 2rem;      /* adjust to taste */
+    letter-spacing: 0;
+    line-height: 1;
 }
 
-.brand-mark {
-  color: var(--red);
+.brand-r3d {
+    color: #A00800;
 }
 
-.brand-text {
-  color: var(--text);
+.brand-myst {
+    color: #F2F2F2;
 }
 
 .main-nav {
