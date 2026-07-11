@@ -62,8 +62,9 @@ a {
 
 .brand-logo {
   display: block;
-  width: 150px;
-  height: auto;
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
 }
 
 .main-nav {
@@ -95,6 +96,14 @@ main {
   display: grid;
   place-content: center;
   padding: 5rem 0;
+}
+
+
+.hero-brand-logo {
+  width: clamp(78px, 9vw, 118px);
+  height: auto;
+  margin-bottom: 1.6rem;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .42));
 }
 
 .eyebrow {
@@ -330,6 +339,7 @@ h3 {
 
 @media (max-width: 620px) {
   .brand-logo {
-    width: 132px;
+    width: 46px;
+    height: 46px;
   }
 }
