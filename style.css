@@ -96,15 +96,11 @@ main {
   display: grid;
   place-content: center;
   padding: 5rem 0;
+
+  text-align: center;
 }
 
 
-.hero-brand-logo {
-  width: clamp(78px, 9vw, 118px);
-  height: auto;
-  margin-bottom: 1.6rem;
-  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .42));
-}
 
 .eyebrow {
   margin: 0 0 0.8rem;
@@ -155,6 +151,9 @@ h3 {
   color: var(--muted);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   line-height: 1.55;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-actions {
@@ -162,6 +161,8 @@ h3 {
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
+
+  justify-content: center;
 }
 
 .button {
