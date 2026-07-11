@@ -1,9 +1,9 @@
 @font-face {
-    font-family: "R3DMYST";
-    src: url("assets/fonts/R3DMYST.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-	font-display: swap;
+  font-family: "R3DMYST";
+  src: url("assets/fonts/R3DMyst.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -55,28 +55,15 @@ a {
   backdrop-filter: blur(14px);
 }
 
-@font-face {
-    font-family: "R3DMYST";
-    src: url("assets/fonts/R3DMyst.otf") format("opentype");
-    font-display: swap;
-}
-
 .brand {
-    display: inline-flex;
-    align-items: baseline;
-    text-decoration: none;
-    font-family: "R3DMYST", sans-serif;
-    font-size: 2rem;      /* adjust to taste */
-    letter-spacing: 0;
-    line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
-.brand-r3d {
-    color: #A00800;
-}
-
-.brand-myst {
-    color: #F2F2F2;
+.brand-logo {
+  display: block;
+  width: 150px;
+  height: auto;
 }
 
 .main-nav {
@@ -133,6 +120,14 @@ h1 {
   letter-spacing: -0.11em;
   text-transform: uppercase;
 }
+
+.hero h1 {
+  font-family: "R3DMYST", sans-serif;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
 
 h2 {
   font-size: clamp(2rem, 5vw, 4.3rem);
@@ -313,5 +308,28 @@ h3 {
 
   .site-footer {
     flex-direction: column;
+  }
+}
+
+.brand-r3d,
+.brand-myst,
+.hero h1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.hero-red {
+  color: var(--red);
+}
+
+.hero-white {
+  color: var(--text);
+}
+
+
+@media (max-width: 620px) {
+  .brand-logo {
+    width: 132px;
   }
 }
