@@ -59,48 +59,68 @@ p {
   margin-top: 0;
 }
 
-.site-header {
+
+
+
+/* Echoing Horizon project header */
+
+.eh-header {
   position: sticky;
   top: 0;
-  z-index: 20;
-  min-height: 80px;
-  padding-inline: var(--page-pad);
-  display: flex;
+  z-index: 30;
+  min-height: 72px;
+  padding: 0 var(--page-pad);
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: var(--space-4);
   background: rgba(243, 243, 240, 0.94);
   border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
 }
 
-.brand {
-  width: 40px;
-  height: 40px;
-  flex: 0 0 auto;
-}
-
-.brand img {
-  width: 100%;
-  height: 100%;
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: clamp(var(--space-3), 3vw, var(--space-5));
-  font-size: 0.72rem;
+.eh-back-link,
+.eh-nav a {
+  font-size: 0.66rem;
   font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eh-back-link {
+  justify-self: start;
+  color: #4e4e4b;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.eh-back-link:hover,
+.eh-back-link:focus-visible {
+  color: var(--red);
+  transform: translateX(-3px);
+}
+
+.eh-header-title {
+  justify-self: center;
+  font-size: 0.84rem;
+  font-weight: 900;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-.main-nav a {
-  position: relative;
-  padding-block: var(--space-1);
+.eh-nav {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--space-2), 2.4vw, var(--space-4));
 }
 
-.main-nav a::after {
+.eh-nav a {
+  position: relative;
+  padding: var(--space-1) 0;
+  color: #4e4e4b;
+}
+
+.eh-nav a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -111,9 +131,70 @@ p {
   transition: right 180ms ease;
 }
 
-.main-nav a:hover::after,
-.main-nav a:focus-visible::after {
+.eh-nav a:hover,
+.eh-nav a:focus-visible {
+  color: var(--ink);
+}
+
+.eh-nav a:hover::after,
+.eh-nav a:focus-visible::after {
   right: 0;
+}
+
+#about,
+#philosophy,
+#gallery,
+#development {
+  scroll-margin-top: 72px;
+}
+
+@media (max-width: 900px) {
+  .eh-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .eh-header-title {
+    justify-self: end;
+  }
+
+  .eh-nav {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-self: stretch;
+    justify-content: space-between;
+    padding-bottom: var(--space-2);
+  }
+}
+
+@media (max-width: 680px) {
+  .eh-header {
+    min-height: 64px;
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+    gap: var(--space-2);
+  }
+
+  .eh-back-link,
+  .eh-nav a {
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+  }
+
+  .eh-header-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .eh-nav {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: var(--space-3);
+    scrollbar-width: none;
+  }
+
+  .eh-nav::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 
@@ -127,7 +208,7 @@ p {
 
 .eh-hero {
   position: relative;
-  min-height: min(860px, calc(100vh - 80px));
+  min-height: min(860px, calc(100vh - 72px));
   display: grid;
   align-items: end;
   overflow: hidden;
