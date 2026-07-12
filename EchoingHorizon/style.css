@@ -621,3 +621,18 @@ p {
     margin-bottom: var(--space-3);
   }
 }
+
+
+/* Universal shell theme: Echoing Horizon */
+:root {
+  --shell-page-pad: var(--page-pad);
+  --shell-accent: var(--red);
+  --shell-header-bg: rgba(243, 243, 240, 0.94);
+  --shell-header-text: var(--ink);
+  --shell-header-muted: #4e4e4b;
+  --shell-header-line: var(--line);
+  --shell-footer-bg: #111111;
+  --shell-footer-text: #f5f5f2;
+  --shell-footer-muted: #8e8e8a;
+  --shell-footer-line: rgba(255, 255, 255, 0.08);
+}

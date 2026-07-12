@@ -1276,3 +1276,36 @@ scrollbar-width:none;
   white-space: nowrap !important;
   pointer-events: none !important;
 }
+
+
+/* Universal shell theme: MRTN Comics */
+:root {
+  --shell-page-pad: clamp(1.5rem, 4vw, 4rem);
+  --shell-accent: var(--red);
+  --shell-header-bg: rgba(4, 5, 7, 0.86);
+  --shell-header-text: var(--text);
+  --shell-header-muted: #d5d5d5;
+  --shell-header-line: var(--red);
+  --shell-footer-bg: #050505;
+  --shell-footer-text: rgba(255, 255, 255, 0.7);
+  --shell-footer-muted: rgba(255, 255, 255, 0.42);
+  --shell-footer-line: rgba(255, 255, 255, 0.06);
+}
+
+.shell-project-title .brand-logo {
+  width: auto;
+  max-width: 110px;
+  max-height: 44px;
+}
+
+/* Existing script.js still expects this field, but it stays invisible. */
+.header-tools-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
+}

@@ -1,0 +1,345 @@
+/*
+  Universal R3DMYST shell
+  Shared by the main site and all project pages.
+  Controls header/footer structure, typography and interaction only.
+*/
+
+:root {
+  --shell-page-pad: clamp(1.5rem, 4vw, 4rem);
+  --shell-accent: #a00800;
+
+  --shell-header-bg: rgba(243, 243, 240, 0.94);
+  --shell-header-text: #090909;
+  --shell-header-muted: #4e4e4b;
+  --shell-header-line: #d8d8d3;
+
+  --shell-footer-bg: #f3f3f0;
+  --shell-footer-text: #252525;
+  --shell-footer-muted: #626262;
+  --shell-footer-line: rgba(0, 0, 0, 0.06);
+}
+
+.shell-header,
+.shell-footer,
+.shell-header button,
+.shell-footer button {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.shell-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 72px;
+  min-height: 72px;
+  padding: 0 var(--shell-page-pad);
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+  color: var(--shell-header-text);
+  background: var(--shell-header-bg);
+  border-bottom: 1px solid var(--shell-header-line);
+  backdrop-filter: blur(14px);
+}
+
+.shell-header--main {
+  grid-template-columns: auto 1fr;
+}
+
+.shell-header--project {
+  grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
+}
+
+.shell-brand {
+  width: 40px;
+  height: 40px;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.shell-brand img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.shell-project-title {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--shell-header-text);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 0.84rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.shell-project-title img {
+  display: block;
+  width: auto;
+  max-width: 150px;
+  max-height: 44px;
+  object-fit: contain;
+}
+
+.shell-back-link {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--shell-header-muted);
+  font-size: 0.66rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.shell-back-link::before {
+  content: "";
+  width: 12px;
+  height: 8px;
+  flex: 0 0 12px;
+  background: currentColor;
+  clip-path: polygon(
+    0 50%,
+    42% 0,
+    42% 36%,
+    100% 36%,
+    100% 64%,
+    42% 64%,
+    42% 100%
+  );
+}
+
+.shell-back-link:hover,
+.shell-back-link:focus-visible {
+  color: var(--shell-accent);
+  transform: translateX(-3px);
+}
+
+.shell-nav {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.4vw, 2rem);
+}
+
+.shell-nav a,
+.shell-nav button {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 0.5rem 0;
+  color: var(--shell-header-muted);
+  background: transparent;
+  border: 0;
+  font-size: 0.66rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.shell-nav a::after,
+.shell-nav button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--shell-accent);
+  transition: right 180ms ease;
+}
+
+/* Deliberately no permanent active underline. */
+.shell-nav a:hover,
+.shell-nav a:focus-visible,
+.shell-nav button:hover,
+.shell-nav button:focus-visible,
+.shell-nav .active {
+  color: var(--shell-header-text);
+}
+
+.shell-nav a:hover::after,
+.shell-nav a:focus-visible::after,
+.shell-nav button:hover::after,
+.shell-nav button:focus-visible::after {
+  right: 0;
+}
+
+.shell-footer {
+  min-height: 88px;
+  padding: 1.5rem var(--shell-page-pad);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+  color: var(--shell-footer-text);
+  background: var(--shell-footer-bg);
+  border-top: 1px solid var(--shell-footer-line);
+  font-size: 0.67rem;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.shell-footer > :first-child {
+  justify-self: start;
+}
+
+.shell-footer > :nth-child(2) {
+  justify-self: center;
+}
+
+.shell-footer > :last-child {
+  justify-self: end;
+}
+
+.shell-footer a,
+.shell-footer button {
+  position: relative;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  padding: 0.5rem 0;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.shell-footer a::after,
+.shell-footer button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 2px;
+  background: var(--shell-accent);
+  transition: right 180ms ease;
+}
+
+.shell-footer a:hover::after,
+.shell-footer a:focus-visible::after,
+.shell-footer button:hover::after,
+.shell-footer button:focus-visible::after {
+  right: 0;
+}
+
+.shell-footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .shell-header--project {
+    height: auto;
+    min-height: 72px;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "back title"
+      "nav nav";
+    gap: 0.75rem 1.5rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .shell-header--project .shell-back-link {
+    grid-area: back;
+  }
+
+  .shell-header--project .shell-project-title {
+    grid-area: title;
+    justify-self: end;
+  }
+
+  .shell-header--project .shell-nav {
+    grid-area: nav;
+    width: 100%;
+    justify-self: stretch;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .shell-header--project .shell-nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .shell-header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .shell-header--main {
+    gap: 1rem;
+  }
+
+  .shell-brand {
+    width: 36px;
+    height: 36px;
+  }
+
+  .shell-header--main .shell-nav {
+    gap: 1rem;
+  }
+
+  .shell-project-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .shell-project-title img {
+    max-width: 110px;
+    max-height: 36px;
+  }
+
+  .shell-back-link,
+  .shell-nav a,
+  .shell-nav button {
+    font-size: 0.59rem;
+    letter-spacing: 0.12em;
+  }
+
+  .shell-footer {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .shell-footer > :first-child,
+  .shell-footer > :nth-child(2),
+  .shell-footer > :last-child {
+    justify-self: start;
+  }
+
+  .shell-footer-links {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+}
