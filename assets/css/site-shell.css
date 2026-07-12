@@ -8,6 +8,7 @@
   --shell-page-pad: clamp(1.5rem, 4vw, 4rem);
   --shell-accent: #a00800;
 
+  /* Defaults only; each page overrides these in its own style.css. */
   --shell-header-bg: rgba(243, 243, 240, 0.94);
   --shell-header-text: #090909;
   --shell-header-muted: #4e4e4b;
