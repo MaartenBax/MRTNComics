@@ -83,12 +83,21 @@
   white-space: nowrap;
 }
 
-.shell-project-title img {
+.shell-project-logo {
   display: block;
   width: auto;
-  max-width: 150px;
-  max-height: 44px;
+  height: auto;
+  max-height: 38px;
   object-fit: contain;
+  object-position: center;
+}
+
+.shell-project-logo--mrtn {
+  max-width: 112px;
+}
+
+.shell-project-logo--eh {
+  max-width: 190px;
 }
 
 .shell-back-link {
@@ -312,9 +321,16 @@
     letter-spacing: 0.12em;
   }
 
-  .shell-project-title img {
-    max-width: 110px;
-    max-height: 36px;
+  .shell-project-logo {
+    max-height: 32px;
+  }
+
+  .shell-project-logo--mrtn {
+    max-width: 92px;
+  }
+
+  .shell-project-logo--eh {
+    max-width: 150px;
   }
 
   .shell-back-link,
