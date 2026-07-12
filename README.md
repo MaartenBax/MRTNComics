@@ -1,53 +1,30 @@
-# MRTN Comics V7
+# R3DMYST base site
 
-This is the V7 redesign based on the darker MRTN-style mockup direction.
+A simple static landing page for `r3dmyst.net`.
 
-## What changed
+## Structure
 
-- New header structure: logo, Home, Series, Favorites, Search
-- Full-width cinematic hero
-- Continue Reading + New Here panel
-- Latest Issues as horizontal issue cards
-- Favorites system with heart buttons
-- Reader functionality kept
-- Book-style spreads kept
-- Header hidden while reading
-- No page flip animation
-- No light mode
-- GitHub Pages compatible
+Place these files in the root of your GitHub Pages repo:
 
-## Files to edit most often
+- `index.html`
+- `style.css`
+- `script.js`
 
-```text
-data/comics.js
-```
+Keep your existing comic site in:
 
-## Replace these assets
+- `MRTNcomics/`
 
-```text
-assets/logo.svg
-series/mrtn/hero.png
-series/mrtn/banner.png
-comics/issue-001/cover.png
-comics/issue-001/page-001.png
-...
-```
+Then the links will work like this:
 
-## Adding a real Issue 002
+- `r3dmyst.net/`
+- `r3dmyst.net/MRTNcomics/`
 
-Create:
+## Optional future folders
 
-```text
-comics/issue-002/
-```
+You can add these later:
 
-Add:
+- `games/`
+- `software/`
+- `artwork/`
 
-```text
-cover.png
-page-001.png
-page-002.png
-back-cover.png
-```
-
-Then update the Issue 002 object in `data/comics.js`.
+For now, the cards point to those folders as placeholders.
