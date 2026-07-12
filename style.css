@@ -639,18 +639,3 @@ h2 span {
     gap: var(--space-2);
   }
 }
-
-
-/* Universal shell theme: R3DMYST */
-:root {
-  --shell-page-pad: var(--page-pad);
-  --shell-accent: var(--red);
-  --shell-header-bg: rgba(243, 243, 240, 0.94);
-  --shell-header-text: var(--ink);
-  --shell-header-muted: #252525;
-  --shell-header-line: var(--line);
-  --shell-footer-bg: var(--paper);
-  --shell-footer-text: #252525;
-  --shell-footer-muted: var(--muted);
-  --shell-footer-line: rgba(0, 0, 0, 0.06);
-}

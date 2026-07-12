@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+      <rect width="1200" height="900" fill="#1a1111"/>
+      <rect x="250" y="255" width="600" height="400" fill="#a00800" opacity=".78"/>
+      <circle cx="630" cy="530" r="165" fill="#ffffff" opacity=".18"/>
+      <path d="M80 760 L1120 540" stroke="#ffffff" stroke-width="8" opacity=".16"/>
+      <text x="70" y="835" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="700" fill="#ffffff">RED ROOM</text>
+    </svg>

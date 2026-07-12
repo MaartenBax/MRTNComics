@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+      <rect width="1200" height="900" fill="#121216"/>
+      <rect x="170" y="200" width="420" height="460" fill="#6933d4" opacity=".78"/>
+      <circle cx="700" cy="420" r="120" fill="#ffffff" opacity=".18"/>
+      <path d="M80 760 L1120 420" stroke="#ffffff" stroke-width="8" opacity=".16"/>
+      <text x="70" y="835" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="700" fill="#ffffff">ORBIT</text>
+    </svg>

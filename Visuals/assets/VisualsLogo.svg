@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" role="img" aria-labelledby="title">
+<title id="title">Visuals</title>
+<g fill="none" stroke="#5c35a8" stroke-width="9" stroke-linecap="square">
+  <path d="M205 20 L280 120 L355 20"/>
+  <path d="M225 20 L280 94 L335 20"/>
+</g>
+<text x="280" y="164" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
+      font-size="31" font-weight="700" letter-spacing="18" fill="#5c35a8">VISUALS</text>
+</svg>
