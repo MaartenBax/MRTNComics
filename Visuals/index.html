@@ -1,154 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f4f1ed" />
-  <meta name="description" content="Visuals — selected renders, design, motion and visual experiments by R3DMYST." />
-  <title>Visuals — R3DMYST</title>
-  <link rel="stylesheet" href="../assets/css/site-shell.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="#f4f1ed" name="theme-color"/>
+  <meta content="Visuals — selected renders, design, motion and visual experiments by R3DMYST." name="description"/>
+  <title>
+   Visuals — R3DMYST
+  </title>
+  <link href="../assets/css/site-shell.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
   <header class="shell-header shell-header--project">
-    <a class="shell-back-link" href="../">Back to R3DMYST</a>
-
-    <a class="shell-project-title shell-project-title--visuals" href="#top" aria-label="Visuals — back to top">
-      <img class="shell-project-logo" src="assets/VisualsLogo.svg" alt="Visuals" />
+   <a class="shell-back-link" href="../">
+    Back to R3DMYST
+   </a>
+   <a aria-label="Visuals — back to top" class="shell-project-title shell-project-title--visuals" href="#top">
+    <img alt="Visuals" class="shell-project-logo" src="assets/VisualsLogo.svg"/>
+   </a>
+   <nav aria-label="Visuals navigation" class="shell-nav">
+    <a href="#gallery">
+     Gallery
     </a>
-
-    <nav class="shell-nav" aria-label="Visuals navigation">
-      <a href="#gallery">Gallery</a>
-      <a href="#collections">Collections</a>
-      <a href="#about">About</a>
-    </nav>
+    <a href="#collections">
+     Collections
+    </a>
+    <a href="#about">
+     About
+    </a>
+   </nav>
   </header>
-
   <main id="top">
-    <section class="visuals-hero">
-      <img class="visuals-hero-logo" src="assets/VisualsLogo.svg" alt="Visuals" />
-      <p>A curated collection of 3D renders, graphic design, motion and visual exploration.</p>
-      <span class="visuals-divider" aria-hidden="true"></span>
-    </section>
-
-    <section class="gallery-section" id="gallery">
-      <div class="gallery-toolbar">
-        <div class="filters" role="group" aria-label="Filter work">
-          <button class="filter-button active" data-filter="all">All</button>
-          <button class="filter-button" data-filter="3d">3D</button>
-          <button class="filter-button" data-filter="design">Design</button>
-          <button class="filter-button" data-filter="motion">Motion</button>
-        </div>
-        <span class="work-count">12 selected works</span>
-      </div>
-
-      <div class="visual-grid">
-        <button class="visual-card visual-card--wide" data-category="3d" data-title="The Depot" data-type="3D Environment" data-year="2026" data-tools="Unreal Engine 5 · Cinema 4D · Photoshop" data-image="assets/depot.svg">
-          <img src="assets/depot.svg" alt="The Depot placeholder artwork" />
-          <span><strong>The Depot</strong><small>3D Environment</small></span>
-        </button>
-
-        <button class="visual-card visual-card--tall" data-category="3d" data-title="The Signal" data-type="3D Render" data-year="2026" data-tools="Unreal Engine 5 · Cinema 4D · Photoshop" data-image="assets/signal.svg">
-          <img src="assets/signal.svg" alt="The Signal placeholder artwork" />
-          <span><strong>The Signal</strong><small>3D Render</small></span>
-        </button>
-
-        <button class="visual-card" data-category="3d" data-title="Mono" data-type="Product Render" data-year="2026" data-tools="Cinema 4D · Octane Render" data-image="assets/mono.svg">
-          <img src="assets/mono.svg" alt="Mono placeholder artwork" />
-          <span><strong>Mono</strong><small>Product Render</small></span>
-        </button>
-
-        <button class="visual-card visual-card--wide" data-category="3d" data-title="Concrete Study" data-type="3D Render" data-year="2026" data-tools="Cinema 4D · Photoshop" data-image="assets/concrete.svg">
-          <img src="assets/concrete.svg" alt="Concrete Study placeholder artwork" />
-          <span><strong>Concrete Study</strong><small>3D Render</small></span>
-        </button>
-
-        <button class="visual-card" data-category="design" data-title="Fragment" data-type="Graphic Design" data-year="2026" data-tools="Photoshop · Illustrator" data-image="assets/fragment.svg">
-          <img src="assets/fragment.svg" alt="Fragment placeholder artwork" />
-          <span><strong>Fragment</strong><small>Graphic Design</small></span>
-        </button>
-
-        <button class="visual-card" data-category="motion" data-title="Late Drive" data-type="Motion Study" data-year="2026" data-tools="Cinema 4D · After Effects" data-image="assets/late-drive.svg">
-          <img src="assets/late-drive.svg" alt="Late Drive placeholder artwork" />
-          <span><strong>Late Drive</strong><small>Motion</small></span>
-        </button>
-
-        <button class="visual-card visual-card--wide" data-category="3d" data-title="Neon District" data-type="3D Environment" data-year="2026" data-tools="Unreal Engine 5 · Photoshop" data-image="assets/neon.svg">
-          <img src="assets/neon.svg" alt="Neon District placeholder artwork" />
-          <span><strong>Neon District</strong><small>3D Environment</small></span>
-        </button>
-
-        <button class="visual-card" data-category="design" data-title="Void" data-type="Poster Design" data-year="2026" data-tools="Photoshop · InDesign" data-image="assets/void.svg">
-          <img src="assets/void.svg" alt="Void placeholder artwork" />
-          <span><strong>Void</strong><small>Poster Design</small></span>
-        </button>
-
-        <button class="visual-card visual-card--wide" data-category="3d" data-title="Still Life" data-type="Product Study" data-year="2026" data-tools="Cinema 4D · Octane Render" data-image="assets/still-life.svg">
-          <img src="assets/still-life.svg" alt="Still Life placeholder artwork" />
-          <span><strong>Still Life</strong><small>Product Study</small></span>
-        </button>
-
-        <button class="visual-card" data-category="3d" data-title="Horizon" data-type="Environment Study" data-year="2026" data-tools="Unreal Engine 5" data-image="assets/horizon.svg">
-          <img src="assets/horizon.svg" alt="Horizon placeholder artwork" />
-          <span><strong>Horizon</strong><small>Environment Study</small></span>
-        </button>
-
-        <button class="visual-card" data-category="design" data-title="Orbit" data-type="Abstract Design" data-year="2026" data-tools="Cinema 4D · Photoshop" data-image="assets/orb.svg">
-          <img src="assets/orb.svg" alt="Orbit placeholder artwork" />
-          <span><strong>Orbit</strong><small>Abstract Design</small></span>
-        </button>
-
-        <button class="visual-card" data-category="motion" data-title="Red Room" data-type="Motion Experiment" data-year="2026" data-tools="After Effects · Cinema 4D" data-image="assets/red-room.svg">
-          <img src="assets/red-room.svg" alt="Red Room placeholder artwork" />
-          <span><strong>Red Room</strong><small>Motion Experiment</small></span>
-        </button>
-      </div>
-    </section>
-
-    <section class="collections-section" id="collections">
-      <p class="section-kicker">Collections</p>
-      <h2>Different disciplines.<br />One visual language.</h2>
-      <div class="collection-grid">
-        <article><span>01</span><h3>3D &amp; Environments</h3><p>Rendered worlds, architectural studies and real-time experiments.</p></article>
-        <article><span>02</span><h3>Graphic Design</h3><p>Posters, identity work, typography and visual systems.</p></article>
-        <article><span>03</span><h3>Motion</h3><p>Animation, title work and moving visual experiments.</p></article>
-      </div>
-    </section>
-
-    <section class="visuals-about" id="about">
-      <p class="section-kicker">About</p>
-      <h2>Selected work from across my visual practice.</h2>
-      <p>This page brings together finished pieces, studies and experiments that do not belong to one specific project.</p>
-    </section>
-  </main>
-
-  <footer class="shell-footer shell-footer--project">
-    <a href="../">Back to R3DMYST</a>
-    <span>Visuals</span>
-    <a href="#top">Back to top</a>
-  </footer>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
-    <div class="lightbox-meta">
-      <p id="lightboxCounter">1 / 12</p>
-      <div>
-        <h2 id="lightboxTitle">The Depot</h2>
-        <p id="lightboxType">3D Environment</p>
-        <p id="lightboxYear">2026</p>
-      </div>
-      <div>
-        <span>Software</span>
-        <p id="lightboxTools">Unreal Engine 5 · Cinema 4D · Photoshop</p>
-      </div>
+   <section class="visuals-hero">
+    <img alt="Visuals" class="visuals-hero-logo" src="assets/VisualsLogo.svg"/>
+    <p>
+     A curated collection of 3D renders, graphic design, motion and visual exploration.
+    </p>
+    <span aria-hidden="true" class="visuals-divider">
+    </span>
+   </section>
+   <section class="gallery-section" id="gallery">
+    <div class="gallery-toolbar">
+     <div aria-label="Filter work" class="filters" id="filters" role="group">
+     </div>
+     <span class="work-count" id="workCount">
+      0 selected works
+     </span>
     </div>
-    <figure class="lightbox-image">
-      <img id="lightboxImg" src="assets/depot.svg" alt="" />
-    </figure>
-    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
-    <button class="lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+    <div aria-live="polite" class="visual-grid">
+    </div>
+   </section>
+   <section class="collections-section" id="collections">
+    <p class="section-kicker">
+     Collections
+    </p>
+    <h2>
+     Different disciplines.
+     <br/>
+     One visual language.
+    </h2>
+    <div class="collection-grid">
+     <article>
+      <span>
+       01
+      </span>
+      <h3>
+       3D &amp; Environments
+      </h3>
+      <p>
+       Rendered worlds, architectural studies and real-time experiments.
+      </p>
+     </article>
+     <article>
+      <span>
+       02
+      </span>
+      <h3>
+       Graphic Design
+      </h3>
+      <p>
+       Posters, identity work, typography and visual systems.
+      </p>
+     </article>
+     <article>
+      <span>
+       03
+      </span>
+      <h3>
+       Motion
+      </h3>
+      <p>
+       Animation, title work and moving visual experiments.
+      </p>
+     </article>
+    </div>
+   </section>
+   <section class="visuals-about" id="about">
+    <p class="section-kicker">
+     About
+    </p>
+    <h2>
+     Selected work from across my visual practice.
+    </h2>
+    <p>
+     This page brings together finished pieces, studies and experiments that do not belong to one specific project.
+    </p>
+   </section>
+  </main>
+  <footer class="shell-footer shell-footer--project">
+   <a href="../">
+    Back to R3DMYST
+   </a>
+   <span>
+    Visuals
+   </span>
+   <a href="#top">
+    Back to top
+   </a>
+  </footer>
+  <div aria-hidden="true" class="lightbox" id="lightbox">
+   <button aria-label="Close image" class="lightbox-close" id="lightboxClose">
+    ×
+   </button>
+   <div class="lightbox-meta">
+    <p id="lightboxCounter">
+     0 / 0
+    </p>
+    <div>
+     <h2 id="lightboxTitle">
+     </h2>
+     <p id="lightboxType">
+     </p>
+     <p id="lightboxYear">
+     </p>
+    </div>
+    <div>
+     <span>
+      Software
+     </span>
+     <p id="lightboxTools">
+     </p>
+    </div>
+   </div>
+   <figure class="lightbox-image">
+    <img alt="" id="lightboxImg" src=""/>
+   </figure>
+   <button aria-label="Previous image" class="lightbox-prev" id="lightboxPrev">
+    ‹
+   </button>
+   <button aria-label="Next image" class="lightbox-next" id="lightboxNext">
+    ›
+   </button>
   </div>
-
-  <script src="script.js"></script>
-</body>
+  <script src="data/visuals.js">
+  </script>
+  <script src="script.js">
+  </script>
+ </body>
 </html>

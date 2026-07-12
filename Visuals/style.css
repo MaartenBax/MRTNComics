@@ -460,3 +460,14 @@ body.lightbox-open { overflow: hidden; }
     right: 1rem;
   }
 }
+
+
+.visual-grid:empty::before {
+  content: "No work has been added yet.";
+  grid-column: 1 / -1;
+  padding: 4rem 1rem;
+  color: var(--muted);
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
