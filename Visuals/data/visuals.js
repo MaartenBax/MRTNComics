@@ -55,8 +55,10 @@ const VISUALS = [
     type: "Motion Study",
     year: "2026",
     tools: ["Cinema 4D", "After Effects"],
-    image: "assets/late-drive.svg",
-    alt: "Late Drive placeholder artwork",
+    media: "video",
+    video: "assets/late-drive.mp4",
+    poster: "assets/late-drive-poster.jpg",
+    alt: "Late Drive motion study",
     size: "normal",
   },
   {
@@ -121,4 +123,5 @@ const VISUALS = [
   },
 ];
 
-// Add new work by copying one object above and changing its values.
+// Image item: use image: "assets/file.webp"
+// Video item: use media: "video", video: "assets/file.mp4", poster: "assets/poster.webp"

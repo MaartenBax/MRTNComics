@@ -1,161 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="#f4f1ed" name="theme-color"/>
-  <meta content="Visuals — selected renders, design, motion and visual experiments by R3DMYST." name="description"/>
-  <title>
-   Visuals — R3DMYST
-  </title>
-  <link href="../assets/css/site-shell.css" rel="stylesheet"/>
-  <link href="style.css" rel="stylesheet"/>
- </head>
- <body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f1ed">
+  <meta name="description" content="Visuals — selected renders, design, motion and visual experiments by R3DMYST.">
+  <title>Visuals — R3DMYST</title>
+  <link rel="stylesheet" href="../assets/css/site-shell.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
   <header class="shell-header shell-header--project">
-   <a class="shell-back-link" href="../">
-    Back to R3DMYST
-   </a>
-   <a aria-label="Visuals — back to top" class="shell-project-title shell-project-title--visuals" href="#top">
-    <img alt="Visuals" class="shell-project-logo" src="assets/VisualsLogo.svg"/>
-   </a>
-   <nav aria-label="Visuals navigation" class="shell-nav">
-    <a href="#gallery">
-     Gallery
+    <a class="shell-back-link" href="../">Back to R3DMYST</a>
+    <a class="shell-project-title shell-project-title--visuals" href="#top" aria-label="Visuals — back to top">
+      <img class="shell-project-logo" src="assets/VisualsLogo.svg" alt="Visuals">
     </a>
-    <a href="#collections">
-     Collections
-    </a>
-    <a href="#about">
-     About
-    </a>
-   </nav>
+    <nav class="shell-nav" aria-label="Visuals navigation">
+      <a href="#gallery">Gallery</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">About</a>
+    </nav>
   </header>
+
   <main id="top">
-   <section class="visuals-hero">
-    <img alt="Visuals" class="visuals-hero-logo" src="assets/VisualsLogo.svg"/>
-    <p>
-     A curated collection of 3D renders, graphic design, motion and visual exploration.
-    </p>
-    <span aria-hidden="true" class="visuals-divider">
-    </span>
-   </section>
-   <section class="gallery-section" id="gallery">
-    <div class="gallery-toolbar">
-     <div aria-label="Filter work" class="filters" id="filters" role="group">
-     </div>
-     <span class="work-count" id="workCount">
-      0 selected works
-     </span>
-    </div>
-    <div aria-live="polite" class="visual-grid">
-    </div>
-   </section>
-   <section class="collections-section" id="collections">
-    <p class="section-kicker">
-     Collections
-    </p>
-    <h2>
-     Different disciplines.
-     <br/>
-     One visual language.
-    </h2>
-    <div class="collection-grid">
-     <article>
-      <span>
-       01
-      </span>
-      <h3>
-       3D &amp; Environments
-      </h3>
-      <p>
-       Rendered worlds, architectural studies and real-time experiments.
-      </p>
-     </article>
-     <article>
-      <span>
-       02
-      </span>
-      <h3>
-       Graphic Design
-      </h3>
-      <p>
-       Posters, identity work, typography and visual systems.
-      </p>
-     </article>
-     <article>
-      <span>
-       03
-      </span>
-      <h3>
-       Motion
-      </h3>
-      <p>
-       Animation, title work and moving visual experiments.
-      </p>
-     </article>
-    </div>
-   </section>
-   <section class="visuals-about" id="about">
-    <p class="section-kicker">
-     About
-    </p>
-    <h2>
-     Selected work from across my visual practice.
-    </h2>
-    <p>
-     This page brings together finished pieces, studies and experiments that do not belong to one specific project.
-    </p>
-   </section>
+    <section class="visuals-hero">
+      <img class="visuals-hero-logo" src="assets/VisualsLogo.svg" alt="Visuals">
+      <p>A curated collection of 3D renders, graphic design, motion and visual exploration.</p>
+      <span class="visuals-divider" aria-hidden="true"></span>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <div class="gallery-toolbar">
+        <div class="filters" id="filters" role="group" aria-label="Filter work"></div>
+        <span class="work-count" id="workCount">0 selected works</span>
+      </div>
+      <div class="visual-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="collections-section" id="collections">
+      <p class="section-kicker">Collections</p>
+      <h2>Different disciplines.<br>One visual language.</h2>
+      <div class="collection-grid">
+        <article><span>01</span><h3>3D &amp; Environments</h3><p>Rendered worlds, architectural studies and real-time experiments.</p></article>
+        <article><span>02</span><h3>Graphic Design</h3><p>Posters, identity work, typography and visual systems.</p></article>
+        <article><span>03</span><h3>Motion</h3><p>Animation, title work and moving visual experiments.</p></article>
+      </div>
+    </section>
+
+    <section class="visuals-about" id="about">
+      <p class="section-kicker">About</p>
+      <h2>Selected work from across my visual practice.</h2>
+      <p>This page brings together finished pieces, studies and experiments that do not belong to one specific project.</p>
+    </section>
   </main>
+
   <footer class="shell-footer shell-footer--project">
-   <a href="../">
-    Back to R3DMYST
-   </a>
-   <span>
-    Visuals
-   </span>
-   <a href="#top">
-    Back to top
-   </a>
+    <a href="../">Back to R3DMYST</a>
+    <span>Visuals</span>
+    <a href="#top">Back to top</a>
   </footer>
-  <div aria-hidden="true" class="lightbox" id="lightbox">
-   <button aria-label="Close image" class="lightbox-close" id="lightboxClose">
-    ×
-   </button>
-   <div class="lightbox-meta">
-    <p id="lightboxCounter">
-     0 / 0
-    </p>
-    <div>
-     <h2 id="lightboxTitle">
-     </h2>
-     <p id="lightboxType">
-     </p>
-     <p id="lightboxYear">
-     </p>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close viewer">×</button>
+
+    <div class="lightbox-meta">
+      <p id="lightboxCounter">0 / 0</p>
+      <div>
+        <h2 id="lightboxTitle"></h2>
+        <p id="lightboxType"></p>
+        <p id="lightboxYear"></p>
+      </div>
+      <div>
+        <span>Software</span>
+        <p id="lightboxTools"></p>
+      </div>
     </div>
-    <div>
-     <span>
-      Software
-     </span>
-     <p id="lightboxTools">
-     </p>
-    </div>
-   </div>
-   <figure class="lightbox-image">
-    <img alt="" id="lightboxImg" src=""/>
-   </figure>
-   <button aria-label="Previous image" class="lightbox-prev" id="lightboxPrev">
-    ‹
-   </button>
-   <button aria-label="Next image" class="lightbox-next" id="lightboxNext">
-    ›
-   </button>
+
+    <figure class="lightbox-media" id="lightboxMedia">
+      <img id="lightboxImg" src="" alt="">
+
+      <div class="video-player" id="videoPlayer" hidden>
+        <video id="lightboxVideo" preload="metadata" playsinline></video>
+
+        <button class="video-center-button" id="videoCenterButton" type="button" aria-label="Play video">
+          <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+          <svg class="icon-replay" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.2 7.1A8 8 0 1 0 20 15h-2.1a6 6 0 1 1-.6-6.4L14 12h7V5z"/></svg>
+        </button>
+
+        <div class="video-controls" id="videoControls">
+          <button class="video-control video-play" id="videoPlay" type="button" aria-label="Play video">
+            <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+          </button>
+
+          <div class="video-timeline-wrap">
+            <input class="video-timeline" id="videoTimeline" type="range" min="0" max="1000" value="0" aria-label="Video progress">
+          </div>
+
+          <span class="video-time" id="videoTime">00:00 / 00:00</span>
+
+          <button class="video-control video-mute" id="videoMute" type="button" aria-label="Mute video">
+            <svg class="icon-volume" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9zm12.5 3a4 4 0 0 0-2-3.46v6.92A4 4 0 0 0 16.5 12zm0-7.1v2.06a6 6 0 0 1 0 10.08v2.06a8 8 0 0 0 0-14.2z"/></svg>
+            <svg class="icon-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9zm12.6 3 2.2-2.2-1.4-1.4-2.2 2.2L13 8.4 11.6 9.8l2.2 2.2-2.2 2.2 1.4 1.4 2.2-2.2 2.2 2.2 1.4-1.4z"/></svg>
+          </button>
+
+          <button class="video-control video-fullscreen" id="videoFullscreen" type="button" aria-label="Enter fullscreen">
+            <svg class="icon-expand" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v2H6v4H4zm10 0h6v6h-2V6h-4zM4 14h2v4h4v2H4zm14 0h2v6h-6v-2h4z"/></svg>
+            <svg class="icon-compress" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h2v6H4V8h4zm6 0h2v4h4v2h-6zM4 14h6v6H8v-4H4zm10 0h6v2h-4v4h-2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </figure>
+
+    <button class="lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous work">‹</button>
+    <button class="lightbox-next" id="lightboxNext" type="button" aria-label="Next work">›</button>
   </div>
-  <script src="data/visuals.js">
-  </script>
-  <script src="script.js">
-  </script>
- </body>
+
+  <script src="data/visuals.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>
