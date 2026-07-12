@@ -5,7 +5,9 @@
 }
 
 :root {
-  --red: #a00800;
+  --accent: #4EA6E8;	
+  --red: var(--accent);
+  
   --back-link-color: #4e4e4b;
   --paper: #f3f3f0;
   --surface: #fafaf8;
@@ -626,7 +628,7 @@ p {
 /* Universal shell theme: Echoing Horizon */
 :root {
   --shell-page-pad: var(--page-pad);
-  --shell-accent: var(--red);
+  --shell-accent: var(--accent);
   --shell-header-bg: rgba(243, 243, 240, 0.94);
   --shell-header-text: var(--ink);
   --shell-header-muted: #4e4e4b;
