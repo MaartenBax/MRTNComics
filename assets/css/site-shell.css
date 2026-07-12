@@ -360,3 +360,48 @@
     gap: 1.25rem;
   }
 }
+
+
+/* Explicit project-logo sizing
+   Prevents SVG logos from collapsing to an invisible auto-sized box. */
+.shell-project-title {
+  min-width: 0;
+  height: 44px;
+  overflow: visible;
+  opacity: 1;
+  visibility: visible;
+}
+
+.shell-project-title--mrtn {
+  width: 112px;
+}
+
+.shell-project-title--eh {
+  width: 190px;
+}
+
+.shell-project-logo {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+  object-position: center;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+@media (max-width: 680px) {
+  .shell-project-title {
+    height: 36px;
+  }
+
+  .shell-project-title--mrtn {
+    width: 92px;
+  }
+
+  .shell-project-title--eh {
+    width: 150px;
+  }
+}
