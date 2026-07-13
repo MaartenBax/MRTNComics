@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f3f3f0" />
   <title>About Me — R3DMYST</title>
+  <link rel="stylesheet" href="assets/css/site-shell.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="./" aria-label="R3DMYST home">
+<body id="top">
+  <header class="shell-header shell-header--main">
+    <a class="shell-brand" href="./" aria-label="R3DMYST home">
       <img src="assets/RMLogo.svg" alt="" />
     </a>
-    <nav class="main-nav" aria-label="Main navigation">
+    <nav class="shell-nav" aria-label="Main navigation">
       <a href="./#projects">Projects</a>
       <a href="about.html" aria-current="page">About Me</a>
     </nav>
@@ -29,11 +30,37 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <span>© <span id="year"></span> <strong>R3DMYST</strong></span>
-    <div class="footer-links">
-      <a href="./#projects">Projects</a>
-      <a href="about.html">About Me</a>
+  <footer class="shell-footer shell-footer--main">
+    <div class="shell-footer-inner">
+      <div class="shell-footer-main">
+        <div class="shell-footer-brand">
+          <img class="shell-footer-logo" src="assets/R3DMYSTLogo.svg" alt="R3DMYST" />
+          <p class="shell-footer-description">
+            The person, ideas and creative work behind R3DMYST.
+          </p>
+        </div>
+        <nav class="shell-footer-column" aria-label="Footer navigation">
+          <p class="shell-footer-heading">Explore</p>
+          <a href="./#projects">Projects</a>
+          <a href="about.html">About Me</a>
+        </nav>
+        <nav class="shell-footer-column" aria-label="Project links">
+          <p class="shell-footer-heading">Projects</p>
+          <a href="MRTNcomics/">MRTN Comics</a>
+          <a href="EchoingHorizon/">Echoing Horizon</a>
+          <a href="Visuals/">Visuals</a>
+        </nav>
+      </div>
+      <div class="shell-footer-bottom">
+        <div class="shell-footer-credit">
+          <span>© <span id="year">2026</span> <strong>R3DMYST</strong></span>
+          <span>Designed &amp; developed by Mrtn.</span>
+        </div>
+        <div class="shell-footer-utility">
+          <a href="./">Back home</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
     </div>
   </footer>
 

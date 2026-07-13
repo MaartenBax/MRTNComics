@@ -224,19 +224,37 @@
    </div>
   </div>
   <footer class="shell-footer shell-footer--project">
-   <span>
-    MRTN Comics
-   </span>
-   <span>
-    © 2026
-   </span>
-   <div class="shell-footer-links">
-    <button onclick="showSeries()">
-     Series
-    </button>
-    <button onclick="showFavorites()">
-     Favorites
-    </button>
+   <div class="shell-footer-inner">
+    <div class="shell-footer-main">
+     <div class="shell-footer-brand">
+      <img class="shell-footer-logo" src="assets/logo.svg" alt="MRTN Comics"/>
+      <p class="shell-footer-description">
+       An autobiographical comic about routine, overstimulation, escape and the everyday.
+      </p>
+     </div>
+     <nav class="shell-footer-column" aria-label="MRTN Comics footer navigation">
+      <p class="shell-footer-heading">Explore</p>
+      <button type="button" onclick="showHome()">Home</button>
+      <button type="button" onclick="showSeries()">Series</button>
+      <button type="button" onclick="showFavorites()">Favorites</button>
+     </nav>
+     <nav class="shell-footer-column" aria-label="R3DMYST links">
+      <p class="shell-footer-heading">R3DMYST</p>
+      <a href="../">Home</a>
+      <a href="../#projects">Projects</a>
+      <a href="../about.html">About Me</a>
+     </nav>
+    </div>
+    <div class="shell-footer-bottom">
+     <div class="shell-footer-credit">
+      <span>© 2026 <strong>R3DMYST</strong></span>
+      <span>Designed &amp; developed by Mrtn.</span>
+     </div>
+     <div class="shell-footer-utility">
+      <a href="../">← Back to R3DMYST</a>
+      <button type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Back to top ↑</button>
+     </div>
+    </div>
    </div>
   </footer>
   <script src="data/comics.js">

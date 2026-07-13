@@ -6,12 +6,10 @@ const VISUALS = [
     label: "3D Environment",
     year: "2026",
     tools: ["Unreal Engine 5", "Cinema 4D", "Photoshop"],
-    description:
-      "An abandoned industrial environment focused on atmosphere, scale and lighting.",
+    description: "An abandoned industrial environment focused on atmosphere, scale and lighting.",
     size: "wide",
     cover: "assets/depot.svg",
     alt: "The Depot environment",
-
     media: [
       {
         kind: "image",
@@ -44,7 +42,80 @@ const VISUALS = [
       },
     ],
   },
-
+  {
+    id: "destruction",
+    title: "Destructed Series",
+    category: "3d",
+    label: "3D Mixed Media",
+    year: "2026",
+    tools: ["Cinema 4D", "After Effects"],
+    description: "",
+    size: "tall",
+    cover: "assets/DestructionSeries/cube-destruction.webp",
+    alt: "",
+    media: [
+      {
+        kind: "image",
+        src: "assets/DestructionSeries/cube-destruction.webp",
+        title: "Cube Destruction",
+        description: "A metallic cube with a blue laser destroying the corner, debris is flying upward.",
+      },
+      {
+        kind: "image",
+        src: "assets/DestructionSeries/sphere-destruction.webp",
+      },
+      {
+        kind: "image",
+        src: "assets/DestructionSeries/pill-destruction.webp",
+      },
+      {
+        kind: "image",
+        src: "assets/DestructionSeries/piramid-destruction.webp",
+      },
+      {
+        kind: "image",
+        src: "assets/DestructionSeries/cone-destruction.webp",
+      },
+      {
+        kind: "image",
+        src: "assets/DestructionSeries/torus-destruction.webp",
+      },
+      {
+        kind: "image",
+        src: "assets/DestructionSeries/polyhedral-destruction.webp",
+      },
+    ],
+  },
+  {
+    id: "posters",
+    title: "Minimalist Posters",
+    category: "design",
+    label: "Minimalist Poster Series",
+    year: "2026",
+    tools: ["Adobe Illustrator"],
+    description: "",
+    size: "tall",
+    cover: "assets/MinimalistPosters/10169268787880277.webp",
+    alt: "",
+    media: [
+      {
+        kind: "image",
+        src: "assets/MinimalistPosters/10169268787880277.webp",
+      },
+      {
+        kind: "image",
+        src: "assets/MinimalistPosters/10169276928925277.webp",
+      },
+      {
+        kind: "image",
+        src: "assets/MinimalistPosters/10169404487385277.webp",
+      },
+      {
+        kind: "image",
+        src: "assets/MinimalistPosters/10169222387850277.webp",
+      },
+    ],
+  },
   {
     id: "the-signal",
     title: "The Signal",
@@ -56,7 +127,6 @@ const VISUALS = [
     size: "tall",
     cover: "assets/signal.svg",
     alt: "The Signal placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -64,7 +134,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "mono",
     title: "Mono",
@@ -76,7 +145,6 @@ const VISUALS = [
     size: "normal",
     cover: "assets/mono.svg",
     alt: "Mono placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -84,7 +152,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "concrete-study",
     title: "Concrete Study",
@@ -96,7 +163,6 @@ const VISUALS = [
     size: "wide",
     cover: "assets/concrete.svg",
     alt: "Concrete Study placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -104,7 +170,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "fragment",
     title: "Fragment",
@@ -116,7 +181,6 @@ const VISUALS = [
     size: "normal",
     cover: "assets/fragment.svg",
     alt: "Fragment placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -124,7 +188,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "late-drive",
     title: "Late Drive",
@@ -136,7 +199,6 @@ const VISUALS = [
     size: "normal",
     cover: "assets/late-drive-poster.jpg",
     alt: "Late Drive motion study",
-
     media: [
       {
         kind: "video",
@@ -145,7 +207,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "neon-district",
     title: "Neon District",
@@ -157,7 +218,6 @@ const VISUALS = [
     size: "wide",
     cover: "assets/neon.svg",
     alt: "Neon District placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -165,7 +225,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "void",
     title: "Void",
@@ -177,7 +236,6 @@ const VISUALS = [
     size: "normal",
     cover: "assets/void.svg",
     alt: "Void placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -185,7 +243,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "still-life",
     title: "Still Life",
@@ -197,7 +254,6 @@ const VISUALS = [
     size: "wide",
     cover: "assets/still-life.svg",
     alt: "Still Life placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -205,7 +261,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "horizon",
     title: "Horizon",
@@ -217,7 +272,6 @@ const VISUALS = [
     size: "normal",
     cover: "assets/horizon.svg",
     alt: "Horizon placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -225,7 +279,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "orbit",
     title: "Orbit",
@@ -237,7 +290,6 @@ const VISUALS = [
     size: "normal",
     cover: "assets/orb.svg",
     alt: "Orbit placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -245,7 +297,6 @@ const VISUALS = [
       },
     ],
   },
-
   {
     id: "red-room",
     title: "Red Room",
@@ -257,7 +308,6 @@ const VISUALS = [
     size: "normal",
     cover: "assets/red-room.svg",
     alt: "Red Room placeholder artwork",
-
     media: [
       {
         kind: "image",
@@ -281,37 +331,7 @@ PROJECT TEMPLATE
   size: "normal", // "normal", "wide", or "tall"
   cover: "assets/project/project-cover.webp",
   alt: "Accessible project description",
-
-  media: [
-    {
-      kind: "image",
-      src: "assets/project/project-image.webp",
-
-      // Optional:
-      thumbnail: "assets/project/thumbs/project-image.webp",
-      title: "Different title",
-      label: "Different label",
-      year: "2025",
-      tools: ["Different software"],
-      description: "Different description",
-      alt: "Accessible description for this variation",
-    },
-
-    {
-      kind: "video",
-      src: "assets/project/project-video.mp4",
-      poster: "assets/project/project-video-poster.webp",
-
-      // Optional:
-      thumbnail: "assets/project/thumbs/project-video.webp",
-      title: "Different title",
-      label: "Motion Study",
-      year: "2026",
-      tools: ["After Effects"],
-      description: "Different description",
-      alt: "Accessible description for this video",
-    },
-  ],
+  media: []
 }
 
 Every media item inherits title, label, year, tools, description and alt

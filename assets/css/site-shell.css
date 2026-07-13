@@ -192,216 +192,196 @@
   right: 0;
 }
 
+
+/* =========================================================
+   Universal large footer
+   ========================================================= */
+
 .shell-footer {
-  min-height: 88px;
-  padding: 1.5rem var(--shell-page-pad);
+  width: 100%;
+  padding: clamp(4.5rem, 8vw, 7rem) var(--shell-page-pad) 1.5rem;
+  color: #f4f1ed;
+  background: #0d0d0f;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.shell-footer-inner {
+  width: min(100%, 1480px);
+  margin: 0 auto;
+}
+
+.shell-footer-main {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 2rem;
-  color: var(--shell-footer-text);
-  background: var(--shell-footer-bg);
-  border-top: 1px solid var(--shell-footer-line);
-  font-size: 0.67rem;
-  font-weight: 800;
-  line-height: 1.4;
-  letter-spacing: 0.16em;
+  grid-template-columns: minmax(260px, 1.5fr) repeat(2, minmax(150px, .65fr));
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: start;
+  padding-bottom: clamp(4rem, 7vw, 6rem);
+}
+
+.shell-footer-brand {
+  max-width: 520px;
+}
+
+.shell-footer-logo {
+  display: block;
+  width: auto;
+  max-width: min(320px, 72vw);
+  max-height: 78px;
+  margin-bottom: 1.75rem;
+  object-fit: contain;
+  object-position: left center;
+  filter: brightness(0) invert(1);
+}
+
+.shell-footer-logo--mark {
+  width: 76px;
+  height: 76px;
+}
+
+.shell-footer-description {
+  max-width: 460px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: clamp(.92rem, 1.2vw, 1.04rem);
+  line-height: 1.75;
+}
+
+.shell-footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .85rem;
+}
+
+.shell-footer-heading {
+  position: relative;
+  margin: 0 0 .85rem;
+  padding-top: 1rem;
+  color: var(--shell-accent);
+  font-size: .66rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .18em;
   text-transform: uppercase;
 }
 
-.shell-footer > :first-child {
-  justify-self: start;
-}
-
-.shell-footer > :nth-child(2) {
-  justify-self: center;
-}
-
-.shell-footer > :last-child {
-  justify-self: end;
+.shell-footer-heading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: currentColor;
 }
 
 .shell-footer a,
 .shell-footer button {
-  position: relative;
-  color: inherit;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.78);
   background: transparent;
   border: 0;
-  padding: 0.5rem 0;
   font: inherit;
-  text-transform: inherit;
-  letter-spacing: inherit;
+  font-size: .88rem;
+  line-height: 1.5;
+  text-align: left;
   text-decoration: none;
   cursor: pointer;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
-.shell-footer a::after,
-.shell-footer button::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 100%;
-  bottom: 0;
-  height: 2px;
-  background: var(--shell-accent);
-  transition: right 180ms ease;
+.shell-footer a:hover,
+.shell-footer a:focus-visible,
+.shell-footer button:hover,
+.shell-footer button:focus-visible {
+  color: var(--shell-accent);
+  transform: translateX(3px);
 }
 
-.shell-footer a:hover::after,
-.shell-footer a:focus-visible::after,
-.shell-footer button:hover::after,
-.shell-footer button:focus-visible::after {
-  right: 0;
-}
-
-.shell-footer-links {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+.shell-footer-bottom {
+  min-height: 68px;
+  padding-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 2rem;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shell-footer-credit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem 1.5rem;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: .68rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.shell-footer-credit strong {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.shell-footer-utility {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1rem 2rem;
+}
+
+.shell-footer-utility a,
+.shell-footer-utility button {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+body.reading .shell-footer {
+  display: none;
 }
 
 @media (max-width: 900px) {
-  .shell-header--project {
-    height: auto;
-    min-height: 72px;
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-      "back title"
-      "nav nav";
-    gap: 0.75rem 1.5rem;
-    padding-top: 0.85rem;
-    padding-bottom: 0.7rem;
+  .shell-footer-main {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .shell-header--project .shell-back-link {
-    grid-area: back;
-  }
-
-  .shell-header--project .shell-project-title {
-    grid-area: title;
-    justify-self: end;
-  }
-
-  .shell-header--project .shell-nav {
-    grid-area: nav;
-    width: 100%;
-    justify-self: stretch;
-    justify-content: flex-start;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .shell-header--project .shell-nav::-webkit-scrollbar {
-    display: none;
+  .shell-footer-brand {
+    grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 680px) {
-  .shell-header {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .shell-header--main {
-    gap: 1rem;
-  }
-
-  .shell-brand {
-    width: 36px;
-    height: 36px;
-  }
-
-  .shell-header--main .shell-nav {
-    gap: 1rem;
-  }
-
-  .shell-project-title {
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-  }
-
-  .shell-project-logo {
-    max-height: 32px;
-  }
-
-  .shell-project-logo--mrtn {
-    max-width: 92px;
-  }
-
-  .shell-project-logo--eh {
-    max-width: 150px;
-  }
-
-  .shell-back-link,
-  .shell-nav a,
-  .shell-nav button {
-    font-size: 0.59rem;
-    letter-spacing: 0.12em;
-  }
-
   .shell-footer {
-    min-height: auto;
+    padding-top: 4rem;
+  }
+
+  .shell-footer-main {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    gap: 2.75rem;
+    padding-bottom: 3.5rem;
   }
 
-  .shell-footer > :first-child,
-  .shell-footer > :nth-child(2),
-  .shell-footer > :last-child {
-    justify-self: start;
+  .shell-footer-brand {
+    grid-column: auto;
   }
 
-  .shell-footer-links {
+  .shell-footer-logo {
+    max-width: min(250px, 70vw);
+    max-height: 64px;
+  }
+
+  .shell-footer-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .shell-footer-utility {
     justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-}
-
-
-/* Explicit project-logo sizing
-   Prevents SVG logos from collapsing to an invisible auto-sized box. */
-.shell-project-title {
-  min-width: 0;
-  height: 44px;
-  overflow: visible;
-  opacity: 1;
-  visibility: visible;
-}
-
-.shell-project-title--mrtn {
-  width: 112px;
-}
-
-.shell-project-title--eh {
-  width: 190px;
-}
-
-.shell-project-logo {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain;
-  object-position: center;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-@media (max-width: 680px) {
-  .shell-project-title {
-    height: 36px;
-  }
-
-  .shell-project-title--mrtn {
-    width: 92px;
-  }
-
-  .shell-project-title--eh {
-    width: 150px;
   }
 }

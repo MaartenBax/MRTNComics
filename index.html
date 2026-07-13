@@ -9,7 +9,7 @@
   <link href="assets/css/site-shell.css" rel="stylesheet"/>
   <link href="style.css" rel="stylesheet"/>
  </head>
- <body>
+ <body id="top">
   <header class="shell-header shell-header--main">
    <a aria-label="R3DMYST home" class="shell-brand" href="./">
     <img alt="" src="assets/RMLogo.svg"/>
@@ -117,22 +117,35 @@
    </section>
   </main>
   <footer class="shell-footer shell-footer--main">
-   <span>
-    ©
-    <span id="year">
-     2026
-    </span>
-    <strong>
-     R3DMYST
-    </strong>
-   </span>
-   <div class="shell-footer-links">
-    <a href="#projects">
-     Projects
-    </a>
-    <a href="about.html">
-     About Me
-    </a>
+   <div class="shell-footer-inner">
+    <div class="shell-footer-main">
+     <div class="shell-footer-brand">
+      <img class="shell-footer-logo" src="assets/R3DMYSTLogo.svg" alt="R3DMYST"/>
+      <p class="shell-footer-description">
+       One personal creative space for games, comics, design, motion and visual experiments.
+      </p>
+     </div>
+     <nav class="shell-footer-column" aria-label="Footer navigation">
+      <p class="shell-footer-heading">Explore</p>
+      <a href="#projects">Projects</a>
+      <a href="about.html">About Me</a>
+     </nav>
+     <nav class="shell-footer-column" aria-label="Project links">
+      <p class="shell-footer-heading">Projects</p>
+      <a href="MRTNcomics/">MRTN Comics</a>
+      <a href="EchoingHorizon/">Echoing Horizon</a>
+      <a href="Visuals/">Visuals</a>
+     </nav>
+    </div>
+    <div class="shell-footer-bottom">
+     <div class="shell-footer-credit">
+      <span>© <span id="year">2026</span> <strong>R3DMYST</strong></span>
+      <span>Designed &amp; developed by Mrtn.</span>
+     </div>
+     <div class="shell-footer-utility">
+      <a href="#top">Back to top ↑</a>
+     </div>
+    </div>
    </div>
   </footer>
   <script src="script.js">
