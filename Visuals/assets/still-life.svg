@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
-      <rect width="1200" height="900" fill="#dedbd5"/>
-      <rect x="250" y="90" width="420" height="400" fill="#171717" opacity=".78"/>
-      <circle cx="840" cy="530" r="120" fill="#ffffff" opacity=".18"/>
-      <path d="M80 760 L1120 180" stroke="#ffffff" stroke-width="8" opacity=".16"/>
-      <text x="70" y="835" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="700" fill="#ffffff">STILL LIFE</text>
-    </svg>
