@@ -38,38 +38,38 @@ const VISUALS = [
     tools: ["Cinema 4D", "After Effects"],
     description: "",
     size: "tall",
-    cover: "assets/destructionseries/cube-destruction.webp",
+    cover: "assets/DestructionSeries/cube-destruction.webp",
     alt: "",
     media: [
       {
         kind: "image",
-        src: "assets/destructionseries/cube-destruction.webp",
+        src: "assets/DestructionSeries/cube-destruction.webp",
         title: "Cube Destruction",
         description: "A metallic cube with a blue laser destroying the corner, debris is flying upward.",
       },
       {
         kind: "image",
-        src: "assets/destructionseries/piramid-destruction.webp",
+        src: "assets/DestructionSeries/piramid-destruction.webp",
       },
       {
         kind: "image",
-        src: "assets/destructionseries/sphere-destruction.webp",
+        src: "assets/DestructionSeries/sphere-destruction.webp",
       },
       {
         kind: "image",
-        src: "assets/destructionseries/pill-destruction.webp",
+        src: "assets/DestructionSeries/pill-destruction.webp",
       },
       {
         kind: "image",
-        src: "assets/destructionseries/cone-destruction.webp",
+        src: "assets/DestructionSeries/cone-destruction.webp",
       },
       {
         kind: "image",
-        src: "assets/destructionseries/torus-destruction.webp",
+        src: "assets/DestructionSeries/torus-destruction.webp",
       },
       {
         kind: "image",
-        src: "assets/destructionseries/polyhedral-destruction.webp",
+        src: "assets/DestructionSeries/polyhedral-destruction.webp",
       },
     ],
   },
@@ -82,24 +82,24 @@ const VISUALS = [
     tools: ["Adobe Illustrator"],
     description: "",
     size: "tall",
-    cover: "assets/minimalistposters/glados-portal-2.webp",
+    cover: "assets/MinimalistPosters/glados-portal-2.webp",
     alt: "",
     media: [
       {
         kind: "image",
-        src: "assets/minimalistposters/glados-portal-2.webp",
+        src: "assets/MinimalistPosters/glados-portal-2.webp",
       },
       {
         kind: "image",
-        src: "assets/minimalistposters/10169276928925277.webp",
+        src: "assets/MinimalistPosters/10169276928925277.webp",
       },
       {
         kind: "image",
-        src: "assets/minimalistposters/the-matrix.webp",
+        src: "assets/MinimalistPosters/the-matrix.webp",
       },
       {
         kind: "image",
-        src: "assets/minimalistposters/10169222387850277.webp",
+        src: "assets/MinimalistPosters/10169222387850277.webp",
       },
     ],
   },
