@@ -1,0 +1,37 @@
+ECHOING HORIZON PAGE — EDITING GUIDE
+
+The universal header and footer are unchanged.
+
+Most page content is controlled from:
+  data/echoing-horizon-data.js
+
+Edit these sections there:
+- seo
+- hero
+- synopsis
+- features
+- showcase
+- screenshots
+- trailer
+- devlogs
+- project
+- wishlist
+- socials
+
+IMPORTANT PLACEHOLDERS
+- Replace CTA and social URLs currently set to "#" with real URLs.
+- Set trailer.videoUrl to a local MP4 path or hosted video file when ready.
+- Replace SVG placeholder images with real screenshots while keeping the same paths,
+  or change each image path in data/echoing-horizon-data.js.
+
+SEO
+- Core title, description, Open Graph and VideoGame JSON-LD are present in index.html.
+- Keep those values aligned with the seo section in the data file.
+- Replace the canonical URL if the final folder casing or URL differs.
+
+FILES
+- index.html: locked shell + page mount point + SEO tags
+- style.css: Echoing Horizon content design only
+- data/echoing-horizon-data.js: editable content database
+- echoing-horizon.js: renderer, gallery and trailer behavior
+- ../site-shell.css: unchanged
