@@ -987,3 +987,10 @@ dd {
     animation-iteration-count: 1 !important;
   }
 }
+
+.eh-devlog-all {
+  width: min(100%, var(--content-width));
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: flex-end;
+}

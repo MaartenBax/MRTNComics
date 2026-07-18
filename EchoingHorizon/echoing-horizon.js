@@ -195,6 +195,7 @@
         <p>${escapeHtml(data.devlogs.intro)}</p>
       </div>
       <div class="eh-devlog-grid">${posts}</div>
+      <div class="eh-devlog-all"><a class="eh-button eh-button--secondary" href="devlogs/">View all devlogs <span aria-hidden="true">↗</span></a></div>
       <dl class="eh-project-details">${projectDetails}</dl>
     </section>
 

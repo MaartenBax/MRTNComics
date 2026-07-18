@@ -35,3 +35,27 @@ FILES
 - data/echoing-horizon-data.js: editable content database
 - echoing-horizon.js: renderer, gallery and trailer behavior
 - ../site-shell.css: unchanged
+
+DEVLOG SYSTEM
+-------------
+Overview page:
+  EchoingHorizon/devlogs/index.html
+
+Reusable article page:
+  EchoingHorizon/devlogs/devlog.html?post=ARTICLE-SLUG
+
+All devlog cards and article content are edited in:
+  EchoingHorizon/data/devlogs-data.js
+
+To publish a new post:
+1. Copy one existing post object in devlogs-data.js.
+2. Give it a unique slug, date, title, excerpt and sections.
+3. Place its images/videos in EchoingHorizon/assets/devlogs/YOUR-SLUG/.
+4. Set status to "published".
+
+Supported blocks:
+  paragraph, heading, image, video, gallery, quote, list,
+  callout, comparison, divider
+
+Sections with showInNavigation: true automatically appear in the sticky
+jump-link navigation on desktop and the Jump to section menu on mobile.

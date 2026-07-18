@@ -1,0 +1,558 @@
+:root {
+  --devlog-reading: 760px;
+  --devlog-wide: 1120px;
+  --devlog-sidebar: 220px;
+}
+
+.eh-devlog-page main {
+  min-height: 70vh;
+  overflow: clip;
+}
+
+.devlog-hero,
+.devlog-article-head {
+  padding: clamp(6rem, 10vw, 10rem) var(--page-pad) clamp(4rem, 7vw, 7rem);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.devlog-hero-inner,
+.devlog-article-head-inner {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+}
+
+.devlog-hero h1,
+.devlog-article-head h1 {
+  max-width: 1100px;
+  margin-top: 1rem;
+  font-size: clamp(3.4rem, 8vw, 8rem);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -.075em;
+}
+
+.devlog-hero p:not(.eh-overline),
+.devlog-article-intro {
+  max-width: 720px;
+  margin-top: 2rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.devlog-list-section {
+  padding: clamp(5rem, 9vw, 9rem) var(--page-pad);
+  border-bottom: 1px solid var(--line);
+}
+
+.devlog-card-grid {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.devlog-card {
+  min-height: 430px;
+  padding: clamp(1.75rem, 3vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  transition: background 180ms ease;
+}
+
+.devlog-card:hover,
+.devlog-card:focus-within {
+  background: #fff;
+}
+
+.devlog-card:first-child {
+  grid-column: 1 / -1;
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+
+.devlog-card-media {
+  min-height: 260px;
+  overflow: hidden;
+  background: #e7e9e8;
+  border: 1px solid var(--line);
+}
+
+.devlog-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.devlog-card-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.devlog-card-meta,
+.devlog-article-meta,
+.devlog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem 1rem;
+  color: var(--accent-deep);
+  font-size: .64rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.devlog-card h2 {
+  margin-top: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 500;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.devlog-card p {
+  margin-top: 1.25rem;
+  max-width: 620px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.devlog-card-link {
+  margin-top: auto;
+  padding-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.devlog-card-link::after {
+  content: "↗";
+  color: var(--accent-deep);
+  font-size: 1rem;
+}
+
+.devlog-back {
+  display: inline-flex;
+  margin-bottom: 3rem;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.devlog-back:hover,
+.devlog-back:focus-visible {
+  color: var(--accent-deep);
+}
+
+.devlog-article-meta {
+  margin-bottom: 1.4rem;
+}
+
+.devlog-tags {
+  margin-top: 1.6rem;
+  color: var(--muted);
+}
+
+.devlog-cover {
+  width: min(100%, var(--content-width));
+  margin: clamp(3rem, 7vw, 7rem) auto 0;
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #e7e9e8;
+}
+
+.devlog-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.devlog-article-layout {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  padding: clamp(5rem, 9vw, 9rem) var(--page-pad);
+  display: grid;
+  grid-template-columns: var(--devlog-sidebar) minmax(0, 1fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  align-items: start;
+}
+
+.devlog-toc {
+  position: sticky;
+  top: 100px;
+}
+
+.devlog-toc-label {
+  margin-bottom: 1.25rem;
+  color: var(--accent-deep);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.devlog-toc nav {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.devlog-toc a {
+  padding: .85rem 0;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  font-size: .78rem;
+  line-height: 1.35;
+  transition: color 160ms ease, padding-left 160ms ease;
+}
+
+.devlog-toc a:hover,
+.devlog-toc a:focus-visible,
+.devlog-toc a.is-active {
+  padding-left: .5rem;
+  color: var(--accent-deep);
+}
+
+.devlog-mobile-jump {
+  display: none;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.devlog-mobile-jump label {
+  display: block;
+  margin-bottom: .65rem;
+  color: var(--accent-deep);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.devlog-mobile-jump select {
+  width: 100%;
+  padding: .9rem 1rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+
+.devlog-article-body {
+  min-width: 0;
+}
+
+.devlog-section {
+  scroll-margin-top: 100px;
+}
+
+.devlog-section + .devlog-section {
+  margin-top: clamp(5rem, 9vw, 9rem);
+  padding-top: clamp(4rem, 7vw, 7rem);
+  border-top: 1px solid var(--line);
+}
+
+.devlog-section > h2 {
+  width: min(100%, var(--devlog-reading));
+  margin: 0 auto 2rem;
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  font-weight: 500;
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.devlog-block + .devlog-block {
+  margin-top: 2rem;
+}
+
+.devlog-paragraph,
+.devlog-list,
+.devlog-quote,
+.devlog-callout,
+.devlog-heading-small,
+.devlog-video-caption,
+.devlog-figure figcaption {
+  width: min(100%, var(--devlog-reading));
+  margin-inline: auto;
+}
+
+.devlog-paragraph {
+  color: #333638;
+  font-size: 1.04rem;
+  line-height: 1.9;
+}
+
+.devlog-heading-small {
+  margin-top: 3rem;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.devlog-list {
+  padding-left: 1.25rem;
+  color: #333638;
+  line-height: 1.8;
+}
+
+.devlog-list li + li {
+  margin-top: .75rem;
+}
+
+.devlog-figure,
+.devlog-video,
+.devlog-gallery,
+.devlog-comparison {
+  width: min(100%, var(--devlog-reading));
+  margin-inline: auto;
+}
+
+.devlog-figure--wide,
+.devlog-video--wide,
+.devlog-gallery,
+.devlog-comparison {
+  width: min(100%, var(--devlog-wide));
+}
+
+.devlog-figure img,
+.devlog-video video,
+.devlog-video-placeholder,
+.devlog-gallery img,
+.devlog-comparison img {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #e7e9e8;
+}
+
+.devlog-figure figcaption,
+.devlog-video-caption,
+.devlog-gallery figcaption,
+.devlog-comparison figcaption {
+  margin-top: .8rem;
+  color: var(--muted);
+  font-size: .75rem;
+  line-height: 1.55;
+}
+
+.devlog-video-placeholder {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.devlog-video-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .72;
+}
+
+.devlog-video-placeholder span {
+  position: absolute;
+  padding: .8rem 1rem;
+  color: #fff;
+  background: rgba(9, 9, 9, .82);
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.devlog-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.devlog-gallery figure {
+  margin: 0;
+}
+
+.devlog-quote {
+  padding: 1.75rem 0 1.75rem 2rem;
+  border-left: 3px solid var(--accent);
+  color: #222526;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}
+
+.devlog-callout {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.devlog-callout-label {
+  color: var(--accent-deep);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.devlog-callout h3 {
+  margin-top: .8rem;
+  font-size: 1.35rem;
+}
+
+.devlog-callout p {
+  margin-top: .8rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.devlog-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.devlog-comparison figure {
+  margin: 0;
+}
+
+.devlog-comparison-label {
+  margin-bottom: .65rem;
+  color: var(--accent-deep);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.devlog-comparison > figcaption {
+  grid-column: 1 / -1;
+}
+
+.devlog-post-nav {
+  padding: 0 var(--page-pad) clamp(6rem, 10vw, 10rem);
+}
+
+.devlog-post-nav-inner {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.devlog-post-nav a {
+  min-height: 180px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface);
+}
+
+.devlog-post-nav a:hover,
+.devlog-post-nav a:focus-visible {
+  background: #fff;
+}
+
+.devlog-post-nav span {
+  color: var(--accent-deep);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.devlog-post-nav strong {
+  max-width: 420px;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+.devlog-empty {
+  padding: 8rem var(--page-pad);
+  text-align: center;
+}
+
+.devlog-empty h1 {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  letter-spacing: -.06em;
+}
+
+.devlog-empty p {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.devlog-empty a {
+  margin-top: 2rem;
+}
+
+@media (max-width: 980px) {
+  .devlog-card:first-child {
+    display: flex;
+  }
+
+  .devlog-article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .devlog-toc {
+    display: none;
+  }
+
+  .devlog-mobile-jump {
+    display: block;
+  }
+}
+
+@media (max-width: 720px) {
+  .devlog-card-grid,
+  .devlog-post-nav-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .devlog-card:first-child {
+    grid-column: auto;
+    min-height: 430px;
+  }
+
+  .devlog-gallery,
+  .devlog-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .devlog-comparison > figcaption {
+    grid-column: auto;
+  }
+
+  .devlog-cover {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.devlog-card,
+.eh-devlog-card {
+  position: relative;
+}
+
+.devlog-card-link::before,
+.eh-devlog-card > a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
