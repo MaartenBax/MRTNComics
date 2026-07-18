@@ -145,6 +145,24 @@ if (year) year.textContent = new Date().getFullYear();
     });
     return wrapper;
   };
+  const renderIntroSplitBlock = (block) => {
+    const wrapper = createElement("section", "about-expanded-intro");
+    if (block.eyebrow) wrapper.append(createElement("p", "about-expanded-eyebrow", block.eyebrow));
+
+    const main = createElement("div", "about-expanded-intro-main");
+    const titleWrap = createElement("div", "about-expanded-intro-title");
+    titleWrap.append(createElement("h3", "", block.title || block.text || "Heading"));
+
+    const copyWrap = createElement("div", "about-expanded-copy about-expanded-intro-copy");
+    const paragraphs = Array.isArray(block.paragraphs) ? block.paragraphs : [block.text];
+    paragraphs.filter((paragraph) => typeof paragraph === "string" && paragraph.trim()).forEach((paragraph) => {
+      copyWrap.append(createElement("p", "", paragraph));
+    });
+
+    main.append(titleWrap, copyWrap);
+    wrapper.append(main);
+    return wrapper;
+  };
 
   const renderImageBlock = (block) => {
     const figure = createElement("figure", "about-expanded-image");
@@ -310,12 +328,21 @@ if (year) year.textContent = new Date().getFullYear();
   const renderBlock = (block, sectionId) => {
     if (!block || typeof block !== "object") return null;
 
-    const outer = createElement("div", `about-expanded-block ${getBlockSpanClass(block.span)}`);
+    const alignmentClass = block.align === "bottom"
+      ? " about-expanded-block--align-bottom"
+      : block.align === "center"
+        ? " about-expanded-block--align-center"
+        : "";
+    const outer = createElement(
+      "div",
+      `about-expanded-block ${getBlockSpanClass(block.span)}${alignmentClass}`
+    );
     let content;
 
     switch (block.type) {
       case "heading": content = renderHeadingBlock(block); break;
       case "paragraph": content = renderParagraphBlock(block); break;
+      case "introSplit": content = renderIntroSplitBlock(block); break;
       case "image": content = renderImageBlock(block); break;
       case "gallery": content = renderGalleryBlock(block); break;
       case "quote": content = renderQuoteBlock(block); break;
@@ -543,4 +570,61 @@ if (year) year.textContent = new Date().getFullYear();
   renderSections();
   renderApproach();
   setupAccordion();
+})();
+/* R3DMYST homepage data renderer. The existing markup remains a no-JS fallback. */
+(() => {
+  const data = window.R3DMYST_PAGE_DATA;
+  if (!data || !document.querySelector(".hero")) return;
+
+  const escapeHtml = (value = "") => String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+  const safeHref = (value = "#") => /^(?:https?:|mailto:|#|\.\.?\/|[A-Za-z0-9_-]+\/|[A-Za-z0-9_.-]+\.html)/.test(value) ? value : "#";
+
+  if (data.meta) {
+    document.title = data.meta.title || document.title;
+    let description = document.querySelector('meta[name="description"]');
+    if (!description) {
+      description = document.createElement("meta");
+      description.name = "description";
+      document.head.appendChild(description);
+    }
+    description.content = data.meta.description || "";
+  }
+
+  const navigation = document.querySelector(".shell-header--main .shell-nav");
+  if (navigation) navigation.innerHTML = (data.navigation || []).map((link) =>
+    `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`
+  ).join("");
+
+  const hero = document.querySelector(".hero-inner");
+  if (hero && data.hero) hero.innerHTML = `
+    <h1 class="hero-title" id="hero-title"><img alt="${escapeHtml(data.hero.wordmarkAlt || "R3DMYST")}" class="hero-wordmark" src="${escapeHtml(data.hero.wordmark)}" /></h1>
+    <p class="hero-text">${escapeHtml(data.hero.text)}</p>
+    <div class="hero-actions">${(data.hero.actions || []).map((action) =>
+      `<a class="button button-${action.style === "secondary" ? "secondary" : "primary"}" href="${escapeHtml(safeHref(action.href))}">${escapeHtml(action.label)}</a>`
+    ).join("")}</div>`;
+
+  const grid = document.querySelector(".project-grid");
+  if (grid) grid.innerHTML = (data.projects || []).map((project) => `
+    <a class="project-card" href="${escapeHtml(safeHref(project.href))}">
+      <div class="project-image"><img alt="${escapeHtml(project.imageAlt)}" src="${escapeHtml(project.image)}" /></div>
+      <div class="project-content">
+        <span class="project-number">${escapeHtml(project.number)}</span>
+        <div class="project-copy"><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description).replaceAll("\n", "<br />")}</p></div>
+        <span aria-hidden="true" class="project-arrow">→</span>
+      </div>
+    </a>`).join("");
+
+  const footer = document.querySelector(".shell-footer--main .shell-footer-inner");
+  if (footer && data.footer) footer.innerHTML = `
+    <div class="shell-footer-main">
+      <div class="shell-footer-brand"><img class="shell-footer-logo" src="${escapeHtml(data.footer.logo)}" alt="${escapeHtml(data.footer.logoAlt)}" /><p class="shell-footer-description">${escapeHtml(data.footer.description)}</p></div>
+      <nav class="shell-footer-column" aria-label="Footer navigation"><p class="shell-footer-heading">Explore</p>${(data.footer.explore || []).map((link) => `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</nav>
+      <nav class="shell-footer-column" aria-label="Project links"><p class="shell-footer-heading">Projects</p>${(data.footer.projects || []).map((link) => `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</nav>
+    </div>
+    <div class="shell-footer-bottom"><div class="shell-footer-credit"><span>${escapeHtml(data.footer.copyright)}</span><span>${escapeHtml(data.footer.credit)}</span></div><div class="shell-footer-utility"><a href="#top">Back to top ↑</a></div></div>`;
 })();

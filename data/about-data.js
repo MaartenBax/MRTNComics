@@ -41,15 +41,11 @@ window.ABOUT_PAGE_DATA = {
         ariaLabel: "More about the R3DMYST name and philosophy",
         blocks: [
           {
-            type: "heading",
+            type: "introSplit",
             eyebrow: "The idea behind the name",
-            text: "One creative identity. Different ways of expressing it.",
-            span: "half"
-          },
-          {
-            type: "paragraph",
+            title: "One creative identity. Different ways of expressing it.",
             text: "Use this space for the longer story behind R3DMYST: where the name came from, what it represents, and why all of the work lives under one creative identity.",
-            span: "half"
+            span: "full"
           },
           {
             type: "quote",
@@ -83,15 +79,11 @@ window.ABOUT_PAGE_DATA = {
         ariaLabel: "More about the creative work",
         blocks: [
           {
-            type: "heading",
+            type: "introSplit",
             eyebrow: "Different disciplines",
-            text: "The medium changes. The intention does not.",
-            span: "half"
-          },
-          {
-            type: "paragraph",
+            title: "The medium changes. The intention does not.",
             text: "R3DMYST brings games, graphic design, 3D, motion, comics and experimental visuals together. This text is a placeholder for a fuller explanation of how those disciplines influence one another.",
-            span: "half"
+            span: "full"
           },
           {
             type: "list",
