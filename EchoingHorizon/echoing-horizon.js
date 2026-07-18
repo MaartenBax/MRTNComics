@@ -83,17 +83,20 @@
     )
     .join("");
 
-  const posts = data.devlogs.posts
+  const posts = [...(window.ECHOING_HORIZON_DEVLOGS?.posts || [])]
+    .filter((post) => post.status === "published")
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 3)
     .map(
       (post) => `
         <article class="eh-devlog-card">
           <div class="eh-devlog-meta">
             <time datetime="${escapeHtml(post.date)}">${escapeHtml(formatDate(post.date))}</time>
-            <span>${escapeHtml(post.category)}</span>
+            <span>${escapeHtml(post.build)}</span>
           </div>
           <h3>${escapeHtml(post.title)}</h3>
           <p>${escapeHtml(post.excerpt)}</p>
-          <a href="${escapeHtml(safeUrl(post.url))}" ${safeUrl(post.url) === "#" ? 'aria-disabled="true" data-placeholder-link' : ""}>
+          <a href="devlogs/devlog.html?post=${encodeURIComponent(post.slug)}">
             Read update <span aria-hidden="true">↗</span>
           </a>
         </article>`

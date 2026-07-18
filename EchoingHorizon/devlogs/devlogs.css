@@ -191,6 +191,10 @@
   align-items: start;
 }
 
+.devlog-article-layout--no-toc {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .devlog-toc {
   position: sticky;
   top: 100px;

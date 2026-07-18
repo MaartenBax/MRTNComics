@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract portrait</title>
+  <desc id="desc">A minimal dark silhouette against a textured pale background.</desc>
+  <defs>
+    <filter id="noise">
+      <feTurbulence baseFrequency=".75" numOctaves="3" seed="4" type="fractalNoise"/>
+      <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 .13 0"/>
+    </filter>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#deded9"/>
+      <stop offset=".55" stop-color="#f7f7f4"/>
+      <stop offset="1" stop-color="#d7d7d2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" fill="url(#fade)"/>
+  <rect width="1200" height="420" filter="url(#noise)" opacity=".7"/>
+  <g fill="#101010">
+    <ellipse cx="758" cy="132" rx="76" ry="91"/>
+    <path d="M691 193c-12 39-5 68 23 88l-110 139h326c-42-88-83-149-125-184-10-9-18-23-22-43z"/>
+    <path d="M804 123l52 20-51 21z"/>
+  </g>
+  <path d="M758 39v340" stroke="#a00800" opacity=".18"/>
+  <path d="M83 75h331M83 344h471" stroke="#b5b5b0" opacity=".55"/>
+</svg>

@@ -173,10 +173,10 @@
           </div>
         </header>
 
-        <div class="devlog-article-layout">
-          ${navSections.length > 1 ? `<aside class="devlog-toc"><p class="devlog-toc-label">In this devlog</p><nav aria-label="Article sections">${toc}</nav></aside>` : "<div></div>"}
+        <div class="devlog-article-layout${navSections.length ? "" : " devlog-article-layout--no-toc"}">
+          ${navSections.length > 0 ? `<aside class="devlog-toc"><p class="devlog-toc-label">In this devlog</p><nav aria-label="Article sections">${toc}</nav></aside>` : ""}
           <div class="devlog-article-body">
-            ${navSections.length > 1 ? `<div class="devlog-mobile-jump"><label for="devlog-jump">Jump to section</label><select id="devlog-jump"><option value="">Choose a section</option>${mobileOptions}</select></div>` : ""}
+            ${navSections.length > 0 ? `<div class="devlog-mobile-jump"><label for="devlog-jump">Jump to section</label><select id="devlog-jump"><option value="">Choose a section</option>${mobileOptions}</select></div>` : ""}
             ${articleSections}
           </div>
         </div>

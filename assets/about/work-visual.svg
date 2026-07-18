@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract architectural landscape</title>
+  <desc id="desc">A restrained grayscale landscape with a distant structure and a red vertical light.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f6f3"/>
+      <stop offset="1" stop-color="#cfcfca"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#313131"/>
+      <stop offset=".65" stop-color="#8d8d88"/>
+      <stop offset="1" stop-color="#ddddda"/>
+    </linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="1200" height="420" fill="url(#sky)"/>
+  <path d="M0 286L95 218l88 31 104-111 128 92 111-75 122 90 136-48 118 77 116-34 102 56v124H0z" fill="#a3a39e" opacity=".72"/>
+  <path d="M0 339l145-58 131 27 171-51 147 39 145-28 154 41 120-34 187 53v92H0z" fill="url(#ground)"/>
+  <g opacity=".78">
+    <path d="M510 84h122v218H510z" fill="#4a4a49"/>
+    <path d="M533 49h76v253h-76z" fill="#5c5c59"/>
+    <path d="M565 49v253" stroke="#a00800" stroke-width="3"/>
+    <circle cx="565" cy="236" r="14" fill="#a00800" opacity=".25" filter="url(#soft)"/>
+  </g>
+  <g fill="#151515">
+    <circle cx="710" cy="303" r="7"/>
+    <path d="M704 310h12l6 39h-24z"/>
+  </g>
+  <path d="M0 374c219-26 376-17 525 8 190 32 377 25 675-20" fill="none" stroke="#f3f3f0" opacity=".35"/>
+</svg>

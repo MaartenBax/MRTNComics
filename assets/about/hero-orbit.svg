@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 640" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract R3DMYST orbit</title>
+  <desc id="desc">A dark circular form surrounded by fine technical lines and a red light.</desc>
+  <defs>
+    <radialGradient id="orb" cx="40%" cy="34%" r="68%">
+      <stop offset="0" stop-color="#232323"/>
+      <stop offset=".72" stop-color="#090909"/>
+      <stop offset="1" stop-color="#000"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <g fill="none" stroke="#d8d8d3" opacity=".9">
+    <rect x="120" y="78" width="470" height="470"/>
+    <circle cx="355" cy="314" r="238"/>
+    <circle cx="355" cy="314" r="184"/>
+    <path d="M72 314h568M355 30v568" opacity=".45"/>
+    <path d="M112 112l486 404M598 112L112 516" opacity=".28"/>
+  </g>
+  <g opacity=".25" filter="url(#blur)" fill="#3f3f3d">
+    <path d="M132 424c54-142 119-218 207-227 98-10 180 56 253 198-58 119-144 178-259 176-100-2-167-51-201-147z"/>
+    <path d="M109 358c107-45 173-119 198-221 92 42 169 134 230 275-143 74-285 56-428-54z"/>
+  </g>
+  <circle cx="355" cy="314" r="171" fill="url(#orb)"/>
+  <path d="M355 99v430" stroke="#a00800" stroke-width="1.5"/>
+  <circle cx="355" cy="314" r="18" fill="#a00800" opacity=".25" filter="url(#glow)"/>
+  <circle cx="355" cy="314" r="4" fill="#fff"/>
+  <circle cx="355" cy="314" r="2" fill="#a00800"/>
+  <g fill="#a00800" opacity=".5">
+    <rect x="557" y="133" width="4" height="4"/>
+    <rect x="125" y="489" width="4" height="4"/>
+  </g>
+</svg>

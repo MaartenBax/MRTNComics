@@ -127,32 +127,7 @@ window.ECHOING_HORIZON_DATA = {
     title: "From the devlog.",
     intro:
       "Short updates from the ongoing development of Echoing Horizon.",
-    posts: [
-      {
-        date: "2026-07-18",
-        category: "Website",
-        title: "A new home for Echoing Horizon",
-        excerpt:
-          "Rebuilding the project page around clearer gameplay, stronger imagery and an easier way to share development updates.",
-        url: "devlogs/devlog.html?post=new-home-for-echoing-horizon"
-      },
-      {
-        date: "2026-07-02",
-        category: "Visual development",
-        title: "Reconstructing memory",
-        excerpt:
-          "Exploring how point-cloud objects and unstable fragments can appear present without feeling entirely real.",
-        url: "devlogs/devlog.html?post=reconstructing-memory"
-      },
-      {
-        date: "2026-06-14",
-        category: "Gameplay",
-        title: "Building puzzles before answers",
-        excerpt:
-          "Refining the relationship between rotating mirrors, beam blockers and the spaces that give each mechanic meaning.",
-        url: "devlogs/devlog.html?post=building-puzzles-before-answers"
-      }
-    ]
+    // Cards are sourced from data/devlogs-data.js (newest published first).
   },
 
   project: {

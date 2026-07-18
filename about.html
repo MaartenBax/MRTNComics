@@ -4,29 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f3f3f0" />
+  <meta name="description" content="Meet the person, ideas and creative work behind R3DMYST." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="About Me — R3DMYST" />
+  <meta property="og:description" content="Meet the person, ideas and creative work behind R3DMYST." />
   <title>About Me — R3DMYST</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicons/R3DMyst.svg" />
   <link rel="stylesheet" href="assets/css/site-shell.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body id="top">
+<body id="top" class="about-body">
   <header class="shell-header shell-header--main">
     <a class="shell-brand" href="./" aria-label="R3DMYST home">
       <img src="assets/RMLogo.svg" alt="" />
     </a>
     <nav class="shell-nav" aria-label="Main navigation">
       <a href="./#projects">Projects</a>
-      <a href="about.html" aria-current="page">About Me</a>
+      <a href="about.html" class="active" aria-current="page">About Me</a>
     </nav>
   </header>
 
-  <main class="about-page">
-    <section class="about-page-inner">
-      <p class="about-kicker">R3DMYST</p>
-      <h1>About Me</h1>
-      <p class="about-intro">
-        This page is ready for your own introduction, background and the story behind R3DMYST.
-      </p>
-      <a class="button button-primary" href="./">Back Home</a>
+  <main class="about-layout">
+    <section class="about-hero" aria-labelledby="about-hero-title">
+      <div class="about-hero-inner">
+        <div class="about-hero-copy">
+          <p class="about-eyebrow" data-about-hero-eyebrow>About R3DMYST</p>
+          <h1 id="about-hero-title">
+            <span data-about-hero-title>Independent creative work across games, design, visuals and storytelling</span><span class="about-title-dot" aria-hidden="true">.</span>
+          </h1>
+          <p class="about-hero-intro" data-about-hero-intro>
+            R3DMYST is a solo creative studio focused on crafting meaningful experiences and worlds through games, visual design and long-form storytelling.
+          </p>
+        </div>
+        <div class="about-hero-visual" aria-hidden="true">
+          <img data-about-hero-image src="assets/about/hero-orbit.svg" alt="" />
+          <span class="about-hero-index">01</span>
+          <span class="about-hero-dots"><i></i><i></i><i></i><i></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- All five interactive chapters are rendered from data/about-data.js. -->
+    <section class="about-chapters" data-about-sections aria-label="About R3DMYST chapters"></section>
+
+    <section class="about-approach" aria-labelledby="approach-title">
+      <div class="about-approach-index" aria-hidden="true">
+        <span>06</span><i></i>
+      </div>
+      <p class="about-approach-label" data-approach-label>Approach</p>
+      <h2 id="approach-title" data-approach-title>
+        Focus on meaning.<br />Everything else is noise<span>.</span>
+      </h2>
+      <div class="about-approach-principles" data-approach-principles>
+        <p>Precision over excess.</p>
+        <p>Atmosphere over explanation.</p>
+        <p>Experience over everything.</p>
+      </div>
     </section>
   </main>
 
@@ -64,6 +97,7 @@
     </div>
   </footer>
 
+  <script src="data/about-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
