@@ -33,9 +33,10 @@ window.ABOUT_PAGE_DATA = {
       title: "The name and the philosophy.",
       text: "The name, the philosophy and the goal: create work that leaves a lasting impression.",
       visual: {
-        type: "brand",
+        type: "image",
         image: "assets/R3DMYSTLogo.svg",
-        imageAlt: "R3DMYST"
+        imageAlt: "R3DMYST",
+        fit: "contain"
       },
       expanded: {
         ariaLabel: "More about the R3DMYST name and philosophy",

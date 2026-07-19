@@ -84,15 +84,6 @@ if (year) year.textContent = new Date().getFullYear();
     const wrapper = createElement("span", "about-chapter-visual");
 
     switch (visual.type) {
-      case "brand": {
-        wrapper.classList.add("about-brand-visual");
-        wrapper.append(
-          makeImage({ src: visual.image, alt: visual.imageAlt || "", fit: "contain" }),
-          createElement("span", "about-image-fallback", visual.imageAlt || "R3DMYST")
-        );
-        break;
-      }
-
       case "projects": {
         wrapper.classList.add("about-projects-visual");
         const projects = Array.isArray(visual.projects) ? visual.projects : [];
@@ -116,7 +107,7 @@ if (year) year.textContent = new Date().getFullYear();
       default: {
         wrapper.classList.add("about-image-visual");
         wrapper.append(
-          makeImage({ src: visual.image, alt: visual.imageAlt || "" }),
+          makeImage({ src: visual.image, alt: visual.imageAlt || "", fit: visual.fit || "cover" }),
           createElement("span", "about-image-fallback", visual.imageAlt || "Image")
         );
       }
@@ -359,7 +350,7 @@ if (year) year.textContent = new Date().getFullYear();
     return outer;
   };
 
-  const renderSection = (section) => {
+  const renderSection = (section, sectionIndex, sectionCount) => {
     const article = createElement("article", "about-chapter");
     article.dataset.sectionId = section.id;
     article.id = section.id;
@@ -375,7 +366,16 @@ if (year) year.textContent = new Date().getFullYear();
 
     const number = createElement("span", "about-chapter-number");
     number.setAttribute("aria-hidden", "true");
-    number.append(createElement("span", "", section.number || ""), document.createElement("i"));
+    const sectionPosition = sectionCount > 1
+      ? (sectionIndex / (sectionCount - 1)) * 100
+      : 0;
+    const positionIndicator = createElement("span", "about-chapter-position");
+    positionIndicator.style.setProperty("--about-section-position", `${sectionPosition}%`);
+    number.append(
+      createElement("span", "", section.number || ""),
+      document.createElement("i"),
+      positionIndicator
+    );
 
     const copy = createElement("span", "about-chapter-copy");
     copy.append(
@@ -417,7 +417,9 @@ if (year) year.textContent = new Date().getFullYear();
   const renderSections = () => {
     const mount = document.querySelector("[data-about-sections]");
     if (!mount || !Array.isArray(data.sections)) return;
-    mount.replaceChildren(...data.sections.map(renderSection));
+    mount.replaceChildren(
+      ...data.sections.map((section, index, sections) => renderSection(section, index, sections.length))
+    );
   };
 
   const renderApproach = () => {
@@ -466,7 +468,7 @@ if (year) year.textContent = new Date().getFullYear();
     }
 
     const inner = article.querySelector(".about-chapter-expanded-inner");
-    const rowHeight = getCssPixelValue(document.body, "--about-row-height", 340);
+    const rowHeight = getCssPixelValue(document.body, "--about-row-height", 210);
     const minimumHeight = getCssPixelValue(document.body, "--about-expanded-min-height", 1200);
     const contentHeight = inner ? inner.scrollHeight : 0;
     const targetHeight = Math.max(minimumHeight, rowHeight + contentHeight);
@@ -502,7 +504,7 @@ if (year) year.textContent = new Date().getFullYear();
     } else if (open) {
       requestAnimationFrame(() => sizeExpandedSection(article));
     } else {
-      const rowHeight = getCssPixelValue(document.body, "--about-row-height", 340);
+      const rowHeight = getCssPixelValue(document.body, "--about-row-height", 210);
       requestAnimationFrame(() => {
         article.style.height = `${Math.ceil(rowHeight)}px`;
       });
@@ -557,7 +559,7 @@ if (year) year.textContent = new Date().getFullYear();
           if (article.classList.contains("is-expanded")) sizeExpandedSection(article);
           else if (isMobileAccordion()) article.style.height = "auto";
           else {
-            const rowHeight = getCssPixelValue(document.body, "--about-row-height", 340);
+            const rowHeight = getCssPixelValue(document.body, "--about-row-height", 210);
             article.style.height = `${Math.ceil(rowHeight)}px`;
           }
         });
@@ -570,61 +572,4 @@ if (year) year.textContent = new Date().getFullYear();
   renderSections();
   renderApproach();
   setupAccordion();
-})();
-/* R3DMYST homepage data renderer. The existing markup remains a no-JS fallback. */
-(() => {
-  const data = window.R3DMYST_PAGE_DATA;
-  if (!data || !document.querySelector(".hero")) return;
-
-  const escapeHtml = (value = "") => String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-  const safeHref = (value = "#") => /^(?:https?:|mailto:|#|\.\.?\/|[A-Za-z0-9_-]+\/|[A-Za-z0-9_.-]+\.html)/.test(value) ? value : "#";
-
-  if (data.meta) {
-    document.title = data.meta.title || document.title;
-    let description = document.querySelector('meta[name="description"]');
-    if (!description) {
-      description = document.createElement("meta");
-      description.name = "description";
-      document.head.appendChild(description);
-    }
-    description.content = data.meta.description || "";
-  }
-
-  const navigation = document.querySelector(".shell-header--main .shell-nav");
-  if (navigation) navigation.innerHTML = (data.navigation || []).map((link) =>
-    `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`
-  ).join("");
-
-  const hero = document.querySelector(".hero-inner");
-  if (hero && data.hero) hero.innerHTML = `
-    <h1 class="hero-title" id="hero-title"><img alt="${escapeHtml(data.hero.wordmarkAlt || "R3DMYST")}" class="hero-wordmark" src="${escapeHtml(data.hero.wordmark)}" /></h1>
-    <p class="hero-text">${escapeHtml(data.hero.text)}</p>
-    <div class="hero-actions">${(data.hero.actions || []).map((action) =>
-      `<a class="button button-${action.style === "secondary" ? "secondary" : "primary"}" href="${escapeHtml(safeHref(action.href))}">${escapeHtml(action.label)}</a>`
-    ).join("")}</div>`;
-
-  const grid = document.querySelector(".project-grid");
-  if (grid) grid.innerHTML = (data.projects || []).map((project) => `
-    <a class="project-card" href="${escapeHtml(safeHref(project.href))}">
-      <div class="project-image"><img alt="${escapeHtml(project.imageAlt)}" src="${escapeHtml(project.image)}" /></div>
-      <div class="project-content">
-        <span class="project-number">${escapeHtml(project.number)}</span>
-        <div class="project-copy"><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description).replaceAll("\n", "<br />")}</p></div>
-        <span aria-hidden="true" class="project-arrow">→</span>
-      </div>
-    </a>`).join("");
-
-  const footer = document.querySelector(".shell-footer--main .shell-footer-inner");
-  if (footer && data.footer) footer.innerHTML = `
-    <div class="shell-footer-main">
-      <div class="shell-footer-brand"><img class="shell-footer-logo" src="${escapeHtml(data.footer.logo)}" alt="${escapeHtml(data.footer.logoAlt)}" /><p class="shell-footer-description">${escapeHtml(data.footer.description)}</p></div>
-      <nav class="shell-footer-column" aria-label="Footer navigation"><p class="shell-footer-heading">Explore</p>${(data.footer.explore || []).map((link) => `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</nav>
-      <nav class="shell-footer-column" aria-label="Project links"><p class="shell-footer-heading">Projects</p>${(data.footer.projects || []).map((link) => `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</nav>
-    </div>
-    <div class="shell-footer-bottom"><div class="shell-footer-credit"><span>${escapeHtml(data.footer.copyright)}</span><span>${escapeHtml(data.footer.credit)}</span></div><div class="shell-footer-utility"><a href="#top">Back to top ↑</a></div></div>`;
 })();
