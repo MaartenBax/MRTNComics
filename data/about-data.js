@@ -56,7 +56,7 @@ window.ABOUT_PAGE_DATA = {
       text: "It started as a username and gradually became the name attached to the things I make.",
       title: "The name I create under.",
       visual: {
-        fit: "contain",
+        fit: "cover",
         image: "assets/R3DMYSTLogo.svg",
         imageAlt: "R3DMYST",
         type: "image",
