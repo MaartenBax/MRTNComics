@@ -57,7 +57,7 @@ window.ABOUT_PAGE_DATA = {
       title: "The name I create under.",
       visual: {
         fit: "cover",
-        image: "assets/R3DMYSTLogo.svg",
+        image: "assets/about/R3DLogo.svg",
         imageAlt: "R3DMYST",
         type: "image",
       },
