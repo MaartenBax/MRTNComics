@@ -1,0 +1,193 @@
+:root {
+  --paper: #f3f3f0;
+  --surface: #fafaf8;
+  --ink: #090909;
+  --muted: #666663;
+  --line: #d8d8d3;
+  --red: #a00800;
+  --page-pad: clamp(1.5rem, 4vw, 4rem);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, p { margin-top: 0; }
+main { overflow: hidden; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.software-hero {
+  min-height: clamp(500px, 66vh, 720px);
+  padding: clamp(5rem, 10vw, 9rem) var(--page-pad) clamp(4rem, 7vw, 6rem);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.software-hero-inner {
+  width: min(100%, 940px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.software-eyebrow {
+  margin: 0 0 1.35rem;
+  color: var(--red);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.software-hero h1 {
+  margin: 0 0 1.6rem;
+  font-size: clamp(4rem, 8vw, 7.5rem);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: -.075em;
+}
+
+.software-intro {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(.98rem, 1.4vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.software-jump {
+  margin-top: 2.4rem;
+  padding-bottom: .45rem;
+  border-bottom: 1px solid var(--red);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.software-jump span { margin-left: .5rem; color: var(--red); }
+
+.software-projects {
+  padding: clamp(5rem, 8vw, 7rem) var(--page-pad) clamp(6rem, 9vw, 8rem);
+}
+
+.software-section-head,
+.software-grid,
+.software-about-inner {
+  width: min(100%, 1480px);
+  margin-inline: auto;
+}
+
+.software-section-head {
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .55fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: end;
+}
+
+.software-section-head h2,
+.software-about h2 {
+  margin: 0;
+  font-size: clamp(2.7rem, 4.4vw, 4.8rem);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: -.065em;
+}
+
+.software-section-head > p {
+  max-width: 430px;
+  margin: 0 0 .25rem;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.7;
+}
+
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 1.7vw, 1.55rem);
+}
+
+.software-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.software-card img {
+  width: 100%;
+  height: auto;
+  transition: transform 420ms cubic-bezier(.2,.65,.3,1);
+}
+
+.software-card:hover,
+.software-card:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  outline: none;
+}
+
+.software-card:hover img,
+.software-card:focus-visible img {
+  transform: scale(1.018);
+}
+
+.software-about {
+  padding: 0 var(--page-pad) clamp(7rem, 11vw, 10rem);
+}
+
+.software-about-inner {
+  padding-top: clamp(4rem, 7vw, 6rem);
+  border-top: 1px solid var(--line);
+}
+
+.software-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .75fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: end;
+}
+
+.software-about-grid > p {
+  max-width: 520px;
+  margin: 0 0 .35rem;
+  color: var(--muted);
+  font-size: clamp(.98rem, 1.25vw, 1.08rem);
+  line-height: 1.75;
+}
+
+@media (max-width: 1100px) {
+  .software-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .software-section-head,
+  .software-about-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 680px) {
+  .software-hero { min-height: 520px; }
+  .software-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .software-card { max-width: 430px; margin-inline: auto; }
+}

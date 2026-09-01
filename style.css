@@ -23,7 +23,7 @@
   --space-7: 6rem;     /* 96px */
   --space-8: 8rem;     /* 128px */
 
-  --max-width: 1280px;
+  --max-width: 1680px;
   --page-pad: clamp(1.5rem, 4vw, 4rem);
   --card-radius: 8px;
 }
@@ -229,7 +229,7 @@ main {
   width: min(100%, var(--max-width));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-4);
 }
 
@@ -435,6 +435,14 @@ h2 span {
 
 /* Responsive */
 
+/* Four desktop cards need a little more room than the original three-card row. */
+@media (max-width: 1180px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+}
+
 @media (max-width: 980px) {
   .hero {
     padding-top: var(--space-6);
@@ -451,13 +459,6 @@ h2 span {
     gap: var(--space-3);
   }
 
-  .project-card:last-child {
-    grid-column: 1 / -1;
-  }
-
-  .project-card:last-child .project-image {
-    aspect-ratio: 16 / 6;
-  }
 
   .about-section {
     grid-template-columns: 1fr 1fr;
@@ -530,14 +531,9 @@ h2 span {
     gap: var(--space-4);
   }
 
-  .project-card,
-  .project-card:last-child {
+  .project-card {
     min-height: 520px;
     grid-column: auto;
-  }
-
-  .project-card:last-child .project-image {
-    aspect-ratio: auto;
   }
 
   .project-image {
@@ -1914,5 +1910,71 @@ h2 span {
 
   .about-expanded-intro-copy {
     max-width: 100%;
+  }
+}
+
+
+/* Software overview hero — same homepage structure, section-specific identity */
+.software-page .software-hero-title {
+  width: auto;
+  margin-bottom: var(--space-3);
+  color: var(--ink);
+  font-family: "R3DMyst", Arial, Helvetica, sans-serif;
+  font-size: clamp(5.5rem, 12vw, 11rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 680px) {
+  .software-page .software-hero-title {
+    font-size: clamp(3.2rem, 18vw, 5.6rem);
+    letter-spacing: 0.07em;
+  }
+}
+
+/* Software page refinements: compact hero so projects are visible sooner */
+.software-page .hero {
+  min-height: 380px;
+  padding-top: clamp(3.25rem, 6vw, 5rem);
+  padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.software-page .software-hero-title {
+  margin-bottom: 1rem;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(3.6rem, 7vw, 6.25rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.software-page .hero-text {
+  margin-bottom: 2rem;
+  font-size: clamp(0.86rem, 1.1vw, 1rem);
+  letter-spacing: 0.08em;
+}
+
+.software-page .projects-section {
+  padding-top: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+@media (max-width: 680px) {
+  .software-page .hero {
+    min-height: 340px;
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .software-page .software-hero-title {
+    font-size: clamp(2.9rem, 15vw, 4.5rem);
+    letter-spacing: -0.045em;
+  }
+
+  .software-page .projects-section {
+    padding-top: 2rem;
   }
 }

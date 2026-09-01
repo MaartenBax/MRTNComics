@@ -1,0 +1,71 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#0c0d10"/>
+    <stop offset="1" stop-color="#17191f"/>
+  </linearGradient>
+  <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#a00800"/>
+    <stop offset="1" stop-color="#5f0601"/>
+  </linearGradient>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/>
+<g opacity=".2" stroke="#5d6472" stroke-width="2">
+  <path d="M0 180H1200M0 360H1200M0 540H1200M0 720H1200"/>
+  <path d="M240 0V900M480 0V900M720 0V900M960 0V900"/>
+</g>
+<g transform="translate(105 105)">
+  <rect width="990" height="690" rx="30" fill="#111319" stroke="#323640" stroke-width="2"/>
+  <rect x="34" y="34" width="922" height="52" rx="14" fill="#181b21"/>
+  <circle cx="65" cy="60" r="7" fill="#a00800"/>
+  <circle cx="89" cy="60" r="7" fill="#4d515a"/>
+  <circle cx="113" cy="60" r="7" fill="#4d515a"/>
+  <rect x="160" y="50" width="290" height="20" rx="10" fill="#252a33"/>
+  <rect x="34" y="116" width="205" height="540" rx="18" fill="#0d0f14" stroke="#292e38"/>
+  <rect x="271" y="116" width="685" height="540" rx="18" fill="#151820" stroke="#292e38"/>
+  <g transform="translate(56 150)">
+    <rect width="160" height="38" rx="10" fill="url(#red)"/>
+    <rect y="58" width="132" height="18" rx="9" fill="#303642"/>
+    <rect y="92" width="146" height="18" rx="9" fill="#303642"/>
+    <rect y="126" width="118" height="18" rx="9" fill="#303642"/>
+    <rect y="190" width="160" height="1" fill="#303642"/>
+    <rect y="220" width="130" height="18" rx="9" fill="#303642"/>
+    <rect y="254" width="151" height="18" rx="9" fill="#303642"/>
+    <rect y="288" width="108" height="18" rx="9" fill="#303642"/>
+  </g>
+  <g transform="translate(301 148)">
+    <rect width="290" height="210" rx="18" fill="#20242c" stroke="#343a45"/>
+    <rect x="22" y="24" width="246" height="22" rx="11" fill="#303642"/>
+    <rect x="22" y="68" width="105" height="116" rx="14" fill="#a00800" opacity=".92"/>
+    <rect x="145" y="68" width="123" height="24" rx="10" fill="#4a5260"/>
+    <rect x="145" y="108" width="102" height="16" rx="8" fill="#343b47"/>
+    <rect x="145" y="138" width="112" height="16" rx="8" fill="#343b47"/>
+    <rect x="145" y="168" width="82" height="16" rx="8" fill="#343b47"/>
+
+    <rect x="320" width="305" height="210" rx="18" fill="#f3f3f0" stroke="#d5d5d0"/>
+    <rect x="342" y="24" width="261" height="22" rx="11" fill="#e1e1dc"/>
+    <rect x="342" y="72" width="72" height="112" rx="12" fill="#e8e9eb"/>
+    <rect x="430" y="72" width="72" height="112" rx="12" fill="#e8e9eb"/>
+    <rect x="518" y="72" width="72" height="112" rx="12" fill="#e8e9eb"/>
+    <path d="M414 126C432 126 436 104 453 104C470 104 471 148 490 148C507 148 513 108 529 108" stroke="#7d5ddb" stroke-width="5" stroke-linecap="round"/>
+
+    <rect y="242" width="305" height="245" rx="18" fill="#f7f7f4" stroke="#d5d5d0"/>
+    <rect x="22" y="266" width="62" height="197" rx="10" fill="#171b21"/>
+    <rect x="112" y="272" width="158" height="36" rx="8" fill="#111318"/>
+    <rect x="112" y="328" width="158" height="135" rx="10" fill="#dadddf"/>
+    <rect x="130" y="348" width="70" height="72" rx="8" fill="#f3f3f0"/>
+    <rect x="212" y="348" width="40" height="72" rx="8" fill="#a00800" opacity=".8"/>
+
+    <rect x="335" y="242" width="290" height="245" rx="18" fill="#101117" stroke="#303440"/>
+    <rect x="357" y="266" width="246" height="42" rx="10" fill="#181b23"/>
+    <g transform="translate(357 330)">
+      <rect width="70" height="70" rx="12" fill="#6640bd"/>
+      <rect x="88" width="70" height="70" rx="12" fill="#1f7583"/>
+      <rect x="176" width="70" height="70" rx="12" fill="#b66336"/>
+      <rect y="88" width="70" height="70" rx="12" fill="#40515b"/>
+      <rect x="88" y="88" width="70" height="70" rx="12" fill="#a00800"/>
+      <rect x="176" y="88" width="70" height="70" rx="12" fill="#d8d4cc"/>
+    </g>
+  </g>
+</g>
+</svg>

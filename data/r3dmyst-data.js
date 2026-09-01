@@ -43,6 +43,14 @@ window.R3DMYST_PAGE_DATA = {
       href: "Visuals/",
       image: "assets/artwork-placeholder.png",
       imageAlt: "Placeholder artwork for Visuals"
+    },
+    {
+      number: "04",
+      title: "Software",
+      description: "Tools, workflows\nand experiments.",
+      href: "Software/",
+      image: "assets/software-placeholder.svg",
+      imageAlt: "Placeholder artwork for Software"
     }
   ],
 
@@ -57,7 +65,8 @@ window.R3DMYST_PAGE_DATA = {
     projects: [
       { label: "MRTN Comics", href: "MRTNcomics/" },
       { label: "Echoing Horizon", href: "EchoingHorizon/" },
-      { label: "Visuals", href: "Visuals/" }
+      { label: "Visuals", href: "Visuals/" },
+      { label: "Software", href: "Software/" }
     ],
     copyright: "© 2026 R3DMYST",
     credit: "Designed & developed by Mrtn."
