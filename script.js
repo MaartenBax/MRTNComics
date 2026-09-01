@@ -20,6 +20,52 @@ if (year) year.textContent = new Date().getFullYear();
     if (element && typeof value === "string") element.textContent = value;
   };
 
+  const sanitizeRichHtml = (value) => {
+    if (typeof value !== "string" || !value.trim()) return "";
+    const template = document.createElement("template");
+    template.innerHTML = value;
+    const allowed = new Set(["STRONG", "B", "EM", "I", "U", "SPAN", "A", "BR"]);
+    [...template.content.querySelectorAll("*")].forEach((element) => {
+      if (!allowed.has(element.tagName)) {
+        element.replaceWith(document.createTextNode(element.textContent || ""));
+        return;
+      }
+      const originalStyle = element.getAttribute("style") || "";
+      const originalHref = element.getAttribute("href") || "";
+      [...element.attributes].forEach((attribute) => element.removeAttribute(attribute.name));
+      if (element.tagName === "SPAN") {
+        const match = (originalStyle.match(/color\s*:\s*(#[0-9a-f]{3,8}|rgba?\([^)]+\))/i) || [])[1];
+        if (match) element.style.color = match;
+      }
+      if (element.tagName === "A" && /^(https?:\/\/|mailto:|\/|#)/i.test(originalHref)) {
+        element.href = originalHref;
+        element.target = "_blank";
+        element.rel = "noopener noreferrer";
+      }
+    });
+    return template.innerHTML;
+  };
+
+  const applyTextStyle = (element, style = {}) => {
+    if (!element || !style || typeof style !== "object") return;
+    ["fontSize", "lineHeight", "letterSpacing", "textAlign", "color"].forEach((key) => {
+      if (typeof style[key] === "string") element.style[key] = style[key];
+    });
+  };
+
+  const setRichText = (element, value, richValue, style) => {
+    if (!element) return element;
+    const safe = sanitizeRichHtml(richValue);
+    if (safe) element.innerHTML = safe;
+    else if (typeof value === "string") element.textContent = value;
+    applyTextStyle(element, style);
+    return element;
+  };
+
+  const createRichElement = (tag, className, value, richValue, style) => {
+    return setRichText(createElement(tag, className), value, richValue, style);
+  };
+
   const createElement = (tag, className, text) => {
     const element = document.createElement(tag);
     if (className) element.className = className;
@@ -59,9 +105,9 @@ if (year) year.textContent = new Date().getFullYear();
 
   const renderHero = () => {
     if (!data.hero) return;
-    setText("[data-about-hero-eyebrow]", data.hero.eyebrow);
-    setText("[data-about-hero-title]", data.hero.title);
-    setText("[data-about-hero-intro]", data.hero.intro);
+    setRichText(document.querySelector("[data-about-hero-eyebrow]"), data.hero.eyebrow, data.hero.eyebrowRich, data.hero.eyebrowStyle);
+    setRichText(document.querySelector("[data-about-hero-title]"), data.hero.title, data.hero.titleRich, data.hero.titleStyle);
+    setRichText(document.querySelector("[data-about-hero-intro]"), data.hero.intro, data.hero.introRich, data.hero.introStyle);
 
     const heroImage = document.querySelector("[data-about-hero-image]");
     if (heroImage && data.hero.image) {
@@ -84,6 +130,15 @@ if (year) year.textContent = new Date().getFullYear();
     const wrapper = createElement("span", "about-chapter-visual");
 
     switch (visual.type) {
+      case "brand": {
+        wrapper.classList.add("about-brand-visual");
+        wrapper.append(
+          makeImage({ src: visual.image, alt: visual.imageAlt || "", fit: "contain" }),
+          createElement("span", "about-image-fallback", visual.imageAlt || "R3DMYST")
+        );
+        break;
+      }
+
       case "projects": {
         wrapper.classList.add("about-projects-visual");
         const projects = Array.isArray(visual.projects) ? visual.projects : [];
@@ -107,7 +162,7 @@ if (year) year.textContent = new Date().getFullYear();
       default: {
         wrapper.classList.add("about-image-visual");
         wrapper.append(
-          makeImage({ src: visual.image, alt: visual.imageAlt || "", fit: visual.fit || "cover" }),
+          makeImage({ src: visual.image, alt: visual.imageAlt || "" }),
           createElement("span", "about-image-fallback", visual.imageAlt || "Image")
         );
       }
@@ -123,31 +178,33 @@ if (year) year.textContent = new Date().getFullYear();
 
   const renderHeadingBlock = (block) => {
     const wrapper = createElement("section", "about-expanded-heading");
-    if (block.eyebrow) wrapper.append(createElement("p", "about-expanded-eyebrow", block.eyebrow));
-    wrapper.append(createElement("h3", "", block.text || "Heading"));
+    if (block.eyebrow) wrapper.append(createRichElement("p", "about-expanded-eyebrow", block.eyebrow, block.eyebrowRich, block.eyebrowStyle));
+    wrapper.append(createRichElement("h3", "", block.text || "Heading", block.textRich, block.textStyle));
     return wrapper;
   };
 
   const renderParagraphBlock = (block) => {
     const wrapper = createElement("div", "about-expanded-copy");
     const paragraphs = Array.isArray(block.paragraphs) ? block.paragraphs : [block.text];
-    paragraphs.filter((paragraph) => typeof paragraph === "string" && paragraph.trim()).forEach((paragraph) => {
-      wrapper.append(createElement("p", "", paragraph));
+    paragraphs.filter((paragraph) => typeof paragraph === "string" && paragraph.trim()).forEach((paragraph, index) => {
+      wrapper.append(createRichElement("p", "", paragraph, block.richParagraphs?.[index], block.textStyle));
     });
     return wrapper;
   };
   const renderIntroSplitBlock = (block) => {
     const wrapper = createElement("section", "about-expanded-intro");
-    if (block.eyebrow) wrapper.append(createElement("p", "about-expanded-eyebrow", block.eyebrow));
+    if (block.eyebrow) wrapper.append(createRichElement("p", "about-expanded-eyebrow", block.eyebrow, block.eyebrowRich, block.eyebrowStyle));
 
     const main = createElement("div", "about-expanded-intro-main");
+    const contentAlignment = { top: "start", center: "center", bottom: "end" }[block.contentAlign];
+    if (contentAlignment) main.style.alignItems = contentAlignment;
     const titleWrap = createElement("div", "about-expanded-intro-title");
-    titleWrap.append(createElement("h3", "", block.title || block.text || "Heading"));
+    titleWrap.append(createRichElement("h3", "", block.title || block.text || "Heading", block.titleRich || block.textRich, block.titleStyle || block.textStyle));
 
     const copyWrap = createElement("div", "about-expanded-copy about-expanded-intro-copy");
     const paragraphs = Array.isArray(block.paragraphs) ? block.paragraphs : [block.text];
-    paragraphs.filter((paragraph) => typeof paragraph === "string" && paragraph.trim()).forEach((paragraph) => {
-      copyWrap.append(createElement("p", "", paragraph));
+    paragraphs.filter((paragraph) => typeof paragraph === "string" && paragraph.trim()).forEach((paragraph, index) => {
+      copyWrap.append(createRichElement("p", "", paragraph, block.richParagraphs?.[index], block.textStyle));
     });
 
     main.append(titleWrap, copyWrap);
@@ -158,7 +215,7 @@ if (year) year.textContent = new Date().getFullYear();
   const renderImageBlock = (block) => {
     const figure = createElement("figure", "about-expanded-image");
     figure.append(makeImage({ src: block.src, alt: block.alt || "", fit: block.fit || "cover" }));
-    if (block.caption) figure.append(createElement("figcaption", "", block.caption));
+    if (block.caption) figure.append(createRichElement("figcaption", "", block.caption, block.captionRich, block.captionStyle));
     return figure;
   };
 
@@ -176,16 +233,18 @@ if (year) year.textContent = new Date().getFullYear();
 
   const renderQuoteBlock = (block) => {
     const quote = createElement("blockquote", "about-expanded-quote");
-    quote.append(createElement("p", "", block.text || ""));
-    if (block.attribution) quote.append(createElement("cite", "", block.attribution));
+    quote.append(createRichElement("p", "", block.text || "", block.textRich, block.textStyle));
+    if (block.attribution) quote.append(createRichElement("cite", "", block.attribution, block.attributionRich, block.attributionStyle));
     return quote;
   };
 
   const renderListBlock = (block) => {
     const wrapper = createElement("section", "about-expanded-list");
-    if (block.title) wrapper.append(createElement("h4", "", block.title));
+    if (block.title) wrapper.append(createRichElement("h4", "", block.title, block.titleRich, block.titleStyle));
     const list = createElement(block.ordered ? "ol" : "ul");
-    (Array.isArray(block.items) ? block.items : []).forEach((item) => list.append(createElement("li", "", item)));
+    (Array.isArray(block.items) ? block.items : []).forEach((item, index) =>
+      list.append(createRichElement("li", "", item, block.richItems?.[index], block.itemsStyles?.[index]))
+    );
     wrapper.append(list);
     return wrapper;
   };
@@ -350,7 +409,7 @@ if (year) year.textContent = new Date().getFullYear();
     return outer;
   };
 
-  const renderSection = (section, sectionIndex, sectionCount) => {
+  const renderSection = (section) => {
     const article = createElement("article", "about-chapter");
     article.dataset.sectionId = section.id;
     article.id = section.id;
@@ -366,22 +425,13 @@ if (year) year.textContent = new Date().getFullYear();
 
     const number = createElement("span", "about-chapter-number");
     number.setAttribute("aria-hidden", "true");
-    const sectionPosition = sectionCount > 1
-      ? (sectionIndex / (sectionCount - 1)) * 100
-      : 0;
-    const positionIndicator = createElement("span", "about-chapter-position");
-    positionIndicator.style.setProperty("--about-section-position", `${sectionPosition}%`);
-    number.append(
-      createElement("span", "", section.number || ""),
-      document.createElement("i"),
-      positionIndicator
-    );
+    number.append(createElement("span", "", section.number || ""), document.createElement("i"));
 
     const copy = createElement("span", "about-chapter-copy");
     copy.append(
-      createElement("span", "about-chapter-label", section.label || ""),
-      createElement("span", "about-chapter-title", section.title || ""),
-      createElement("span", "about-chapter-text", section.text || "")
+      createRichElement("span", "about-chapter-label", section.label || "", section.labelRich, section.labelStyle),
+      createRichElement("span", "about-chapter-title", section.title || "", section.titleRich, section.titleStyle),
+      createRichElement("span", "about-chapter-text", section.text || "", section.textRich, section.textStyle)
     );
 
     const visual = renderCollapsedVisual(section.visual || {});
@@ -417,9 +467,7 @@ if (year) year.textContent = new Date().getFullYear();
   const renderSections = () => {
     const mount = document.querySelector("[data-about-sections]");
     if (!mount || !Array.isArray(data.sections)) return;
-    mount.replaceChildren(
-      ...data.sections.map((section, index, sections) => renderSection(section, index, sections.length))
-    );
+    mount.replaceChildren(...data.sections.map(renderSection));
   };
 
   const renderApproach = () => {
@@ -428,7 +476,12 @@ if (year) year.textContent = new Date().getFullYear();
     if (!approach) return;
 
     setText(".about-approach-index span", data.approach.number, approach);
-    setText("[data-approach-label]", data.approach.label, approach);
+    setRichText(
+      approach.querySelector("[data-approach-label]"),
+      data.approach.label,
+      data.approach.labelRich,
+      data.approach.labelStyle
+    );
 
     const title = approach.querySelector("[data-approach-title]");
     if (title && Array.isArray(data.approach.titleLines)) {
@@ -442,7 +495,9 @@ if (year) year.textContent = new Date().getFullYear();
 
     const principles = approach.querySelector("[data-approach-principles]");
     if (principles && Array.isArray(data.approach.principles)) {
-      principles.replaceChildren(...data.approach.principles.map((principle) => createElement("p", "", principle)));
+      principles.replaceChildren(...data.approach.principles.map((principle, index) =>
+        createRichElement("p", "", principle, data.approach.richPrinciples?.[index], data.approach.principlesStyles?.[index])
+      ));
     }
   };
 
@@ -468,7 +523,7 @@ if (year) year.textContent = new Date().getFullYear();
     }
 
     const inner = article.querySelector(".about-chapter-expanded-inner");
-    const rowHeight = getCssPixelValue(document.body, "--about-row-height", 210);
+    const rowHeight = getCssPixelValue(document.body, "--about-row-height", 340);
     const minimumHeight = getCssPixelValue(document.body, "--about-expanded-min-height", 1200);
     const contentHeight = inner ? inner.scrollHeight : 0;
     const targetHeight = Math.max(minimumHeight, rowHeight + contentHeight);
@@ -504,7 +559,7 @@ if (year) year.textContent = new Date().getFullYear();
     } else if (open) {
       requestAnimationFrame(() => sizeExpandedSection(article));
     } else {
-      const rowHeight = getCssPixelValue(document.body, "--about-row-height", 210);
+      const rowHeight = getCssPixelValue(document.body, "--about-row-height", 340);
       requestAnimationFrame(() => {
         article.style.height = `${Math.ceil(rowHeight)}px`;
       });
@@ -559,7 +614,7 @@ if (year) year.textContent = new Date().getFullYear();
           if (article.classList.contains("is-expanded")) sizeExpandedSection(article);
           else if (isMobileAccordion()) article.style.height = "auto";
           else {
-            const rowHeight = getCssPixelValue(document.body, "--about-row-height", 210);
+            const rowHeight = getCssPixelValue(document.body, "--about-row-height", 340);
             article.style.height = `${Math.ceil(rowHeight)}px`;
           }
         });
@@ -572,4 +627,61 @@ if (year) year.textContent = new Date().getFullYear();
   renderSections();
   renderApproach();
   setupAccordion();
+})();
+/* R3DMYST homepage data renderer. The existing markup remains a no-JS fallback. */
+(() => {
+  const data = window.R3DMYST_PAGE_DATA;
+  if (!data || !document.querySelector(".hero")) return;
+
+  const escapeHtml = (value = "") => String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+  const safeHref = (value = "#") => /^(?:https?:|mailto:|#|\.\.?\/|[A-Za-z0-9_-]+\/|[A-Za-z0-9_.-]+\.html)/.test(value) ? value : "#";
+
+  if (data.meta) {
+    document.title = data.meta.title || document.title;
+    let description = document.querySelector('meta[name="description"]');
+    if (!description) {
+      description = document.createElement("meta");
+      description.name = "description";
+      document.head.appendChild(description);
+    }
+    description.content = data.meta.description || "";
+  }
+
+  const navigation = document.querySelector(".shell-header--main .shell-nav");
+  if (navigation) navigation.innerHTML = (data.navigation || []).map((link) =>
+    `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`
+  ).join("");
+
+  const hero = document.querySelector(".hero-inner");
+  if (hero && data.hero) hero.innerHTML = `
+    <h1 class="hero-title" id="hero-title"><img alt="${escapeHtml(data.hero.wordmarkAlt || "R3DMYST")}" class="hero-wordmark" src="${escapeHtml(data.hero.wordmark)}" /></h1>
+    <p class="hero-text">${escapeHtml(data.hero.text)}</p>
+    <div class="hero-actions">${(data.hero.actions || []).map((action) =>
+      `<a class="button button-${action.style === "secondary" ? "secondary" : "primary"}" href="${escapeHtml(safeHref(action.href))}">${escapeHtml(action.label)}</a>`
+    ).join("")}</div>`;
+
+  const grid = document.querySelector(".project-grid");
+  if (grid) grid.innerHTML = (data.projects || []).map((project) => `
+    <a class="project-card" href="${escapeHtml(safeHref(project.href))}">
+      <div class="project-image"><img alt="${escapeHtml(project.imageAlt)}" src="${escapeHtml(project.image)}" /></div>
+      <div class="project-content">
+        <span class="project-number">${escapeHtml(project.number)}</span>
+        <div class="project-copy"><h3>${escapeHtml(project.title)}</h3><p>${escapeHtml(project.description).replaceAll("\n", "<br />")}</p></div>
+        <span aria-hidden="true" class="project-arrow">→</span>
+      </div>
+    </a>`).join("");
+
+  const footer = document.querySelector(".shell-footer--main .shell-footer-inner");
+  if (footer && data.footer) footer.innerHTML = `
+    <div class="shell-footer-main">
+      <div class="shell-footer-brand"><img class="shell-footer-logo" src="${escapeHtml(data.footer.logo)}" alt="${escapeHtml(data.footer.logoAlt)}" /><p class="shell-footer-description">${escapeHtml(data.footer.description)}</p></div>
+      <nav class="shell-footer-column" aria-label="Footer navigation"><p class="shell-footer-heading">Explore</p>${(data.footer.explore || []).map((link) => `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</nav>
+      <nav class="shell-footer-column" aria-label="Project links"><p class="shell-footer-heading">Projects</p>${(data.footer.projects || []).map((link) => `<a href="${escapeHtml(safeHref(link.href))}">${escapeHtml(link.label)}</a>`).join("")}</nav>
+    </div>
+    <div class="shell-footer-bottom"><div class="shell-footer-credit"><span>${escapeHtml(data.footer.copyright)}</span><span>${escapeHtml(data.footer.credit)}</span></div><div class="shell-footer-utility"><a href="#top">Back to top ↑</a></div></div>`;
 })();

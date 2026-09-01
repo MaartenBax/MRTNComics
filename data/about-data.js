@@ -28,9 +28,10 @@ window.ABOUT_PAGE_DATA = {
         ariaLabel: "More about the R3DMYST name ",
         blocks: [
           {
+            contentAlign: "top",
             eyebrow: "About the name",
+            paragraphs: ["R3DMYST began as a username, combining Red Mist from Kick-Ass with Mysterion from South Park.", "RedMyst was already taken, so I replaced the E with a 3. There was no larger idea behind it at the time; it was simply the name I used online. I kept using it as my interests and creative work changed, and over time it became the name attached to the things I make.", "R3DMYST is not a company or studio.", "It is simply the name I create under."],
             span: "full",
-            text: "R3DMYST began as a username, combining Red Mist from Kick-Ass with Mysterion from South Park. RedMyst was already taken, so I replaced the E with a 3. There was no larger idea behind it at the time; it was simply the name I used online. I kept using it as my interests and creative work changed, and over time it became the name attached to the things I make. R3DMYST is not a company or studio. It is simply the name I create under.",
             title: "It started as a username. I just kept using it.",
             type: "introSplit",
           },
@@ -67,6 +68,7 @@ window.ABOUT_PAGE_DATA = {
         ariaLabel: "More about the creative work",
         blocks: [
           {
+            contentAlign: "top",
             eyebrow: "Different disciplines",
             span: "full",
             text: "R3DMYST brings games, graphic design, 3D, motion, comics and experimental visuals together. This text is a placeholder for a fuller explanation of how those disciplines influence one another.",

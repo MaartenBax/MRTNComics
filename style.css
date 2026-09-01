@@ -851,7 +851,15 @@ h2 span {
 .about-chapter-visual {
   height: 100%;
   min-height: 0;
+}
+
+.about-chapter-number,
+.about-chapter-copy {
   padding: clamp(1.5rem, 2.8vw, 2.5rem);
+}
+
+.about-chapter-visual {
+  padding: 0;
 }
 
 .about-chapter-number,
@@ -1625,9 +1633,12 @@ h2 span {
   }
 
   .about-chapter-number,
-  .about-chapter-copy,
-  .about-chapter-visual {
+  .about-chapter-copy {
     padding: 1.75rem;
+  }
+
+  .about-chapter-visual {
+    padding: 0;
   }
 
   .about-approach {
